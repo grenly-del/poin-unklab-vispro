@@ -78,6 +78,11 @@ namespace PoinUnklabVispro
             }
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
         private void monitorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegisMonitor frm1 = new RegisMonitor();
