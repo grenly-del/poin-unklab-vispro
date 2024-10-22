@@ -48,7 +48,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
@@ -56,14 +55,15 @@
             this.loginToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1510, 44);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(685, 24);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(99, 36);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // registerToolStripMenuItem
@@ -72,25 +72,25 @@
             this.mahasiswaToolStripMenuItem,
             this.monitorToolStripMenuItem});
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.registerToolStripMenuItem.Text = "Register";
             // 
             // mahasiswaToolStripMenuItem
             // 
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(262, 44);
+            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(262, 44);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
             this.loginToolStripMenuItem.Text = "Login";
             // 
             // btnMonitor
@@ -98,9 +98,10 @@
             this.btnMonitor.BackgroundImage = global::PoinUnklabVispro.Properties.Resources.bg_button;
             this.btnMonitor.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonitor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnMonitor.Location = new System.Drawing.Point(854, 509);
+            this.btnMonitor.Location = new System.Drawing.Point(427, 265);
+            this.btnMonitor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMonitor.Name = "btnMonitor";
-            this.btnMonitor.Size = new System.Drawing.Size(185, 64);
+            this.btnMonitor.Size = new System.Drawing.Size(92, 33);
             this.btnMonitor.TabIndex = 26;
             this.btnMonitor.Text = "Monitor";
             this.btnMonitor.UseVisualStyleBackColor = true;
@@ -109,9 +110,10 @@
             // 
             this.btnMahasiswa.BackgroundImage = global::PoinUnklabVispro.Properties.Resources.bg_button;
             this.btnMahasiswa.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMahasiswa.Location = new System.Drawing.Point(344, 500);
+            this.btnMahasiswa.Location = new System.Drawing.Point(172, 260);
+            this.btnMahasiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMahasiswa.Name = "btnMahasiswa";
-            this.btnMahasiswa.Size = new System.Drawing.Size(196, 73);
+            this.btnMahasiswa.Size = new System.Drawing.Size(98, 38);
             this.btnMahasiswa.TabIndex = 25;
             this.btnMahasiswa.Text = "Mahasiswa";
             this.btnMahasiswa.UseVisualStyleBackColor = true;
@@ -119,9 +121,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PoinUnklabVispro.Properties.Resources.admin;
-            this.pictureBox3.Location = new System.Drawing.Point(797, 296);
+            this.pictureBox3.Location = new System.Drawing.Point(398, 154);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(298, 296);
+            this.pictureBox3.Size = new System.Drawing.Size(149, 154);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
@@ -129,10 +132,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(27, 54);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(228, 154);
+            this.pictureBox2.Size = new System.Drawing.Size(114, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
@@ -140,26 +142,29 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PoinUnklabVispro.Properties.Resources.mahasiswa;
-            this.pictureBox1.Location = new System.Drawing.Point(293, 285);
+            this.pictureBox1.Location = new System.Drawing.Point(146, 148);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(306, 307);
+            this.pictureBox1.Size = new System.Drawing.Size(153, 160);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
             // HalamanUtama
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 889);
+            this.ClientSize = new System.Drawing.Size(685, 389);
             this.Controls.Add(this.btnMonitor);
             this.Controls.Add(this.btnMahasiswa);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "HalamanUtama";
             this.Text = "HalamanUtama";
+            this.Load += new System.EventHandler(this.HalamanUtama_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

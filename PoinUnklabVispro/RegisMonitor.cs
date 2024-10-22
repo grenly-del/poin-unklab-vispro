@@ -29,6 +29,20 @@ namespace PoinUnklabVispro
             InitializeComponent();
         }
 
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            this.Hide();
+        }
+
+        private void mahasiswaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegisMahasiswa regMhs = new RegisMahasiswa();
+            regMhs.Show();
+            this.Hide();
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try

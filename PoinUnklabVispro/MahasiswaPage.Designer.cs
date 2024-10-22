@@ -68,10 +68,6 @@
             this.lblPilihPekerjaan = new System.Windows.Forms.Label();
             this.lblNomor = new System.Windows.Forms.Label();
             this.Garis = new System.Windows.Forms.Label();
-            this.btnPekerjaan2 = new System.Windows.Forms.Button();
-            this.btnPekerjaan3 = new System.Windows.Forms.Button();
-            this.btnPekerjaan4 = new System.Windows.Forms.Button();
-            this.btnPekerjaan1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -80,6 +76,16 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -89,12 +95,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
@@ -102,15 +108,17 @@
             this.loginToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1658, 40);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(99, 36);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // registerToolStripMenuItem
             // 
@@ -118,34 +126,38 @@
             this.mahasiswaToolStripMenuItem,
             this.monitorToolStripMenuItem});
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(119, 36);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.registerToolStripMenuItem.Text = "Register";
             // 
             // mahasiswaToolStripMenuItem
             // 
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(262, 44);
+            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
+            this.mahasiswaToolStripMenuItem.Click += new System.EventHandler(this.mahasiswaToolStripMenuItem_Click);
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(262, 44);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
+            this.monitorToolStripMenuItem.Click += new System.EventHandler(this.monitorToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
             this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(486, 60);
+            this.lblTotal.Location = new System.Drawing.Point(243, 31);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(229, 45);
+            this.lblTotal.Size = new System.Drawing.Size(110, 23);
             this.lblTotal.TabIndex = 24;
             this.lblTotal.Text = "Total          :";
             // 
@@ -153,9 +165,10 @@
             // 
             this.lblDikerjakan.AutoSize = true;
             this.lblDikerjakan.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDikerjakan.Location = new System.Drawing.Point(486, 116);
+            this.lblDikerjakan.Location = new System.Drawing.Point(243, 60);
+            this.lblDikerjakan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDikerjakan.Name = "lblDikerjakan";
-            this.lblDikerjakan.Size = new System.Drawing.Size(229, 45);
+            this.lblDikerjakan.Size = new System.Drawing.Size(115, 23);
             this.lblDikerjakan.TabIndex = 25;
             this.lblDikerjakan.Text = "Dikerjakan :";
             // 
@@ -164,9 +177,10 @@
             this.lblValTotal.AutoSize = true;
             this.lblValTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblValTotal.Font = new System.Drawing.Font("Arial", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValTotal.Location = new System.Drawing.Point(710, 73);
+            this.lblValTotal.Location = new System.Drawing.Point(355, 38);
+            this.lblValTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValTotal.Name = "lblValTotal";
-            this.lblValTotal.Size = new System.Drawing.Size(38, 32);
+            this.lblValTotal.Size = new System.Drawing.Size(19, 16);
             this.lblValTotal.TabIndex = 26;
             this.lblValTotal.Text = "...";
             // 
@@ -174,9 +188,10 @@
             // 
             this.lblValDikerjakan.AutoSize = true;
             this.lblValDikerjakan.Font = new System.Drawing.Font("Arial", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValDikerjakan.Location = new System.Drawing.Point(710, 126);
+            this.lblValDikerjakan.Location = new System.Drawing.Point(355, 66);
+            this.lblValDikerjakan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValDikerjakan.Name = "lblValDikerjakan";
-            this.lblValDikerjakan.Size = new System.Drawing.Size(38, 32);
+            this.lblValDikerjakan.Size = new System.Drawing.Size(19, 16);
             this.lblValDikerjakan.TabIndex = 27;
             this.lblValDikerjakan.Text = "...";
             // 
@@ -184,9 +199,10 @@
             // 
             this.lblStatusApproval.AutoSize = true;
             this.lblStatusApproval.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusApproval.Location = new System.Drawing.Point(487, 180);
+            this.lblStatusApproval.Location = new System.Drawing.Point(244, 94);
+            this.lblStatusApproval.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStatusApproval.Name = "lblStatusApproval";
-            this.lblStatusApproval.Size = new System.Drawing.Size(173, 25);
+            this.lblStatusApproval.Size = new System.Drawing.Size(85, 13);
             this.lblStatusApproval.TabIndex = 28;
             this.lblStatusApproval.Text = "(status approval)";
             // 
@@ -194,9 +210,10 @@
             // 
             this.lblNamaMahasiswa.AutoSize = true;
             this.lblNamaMahasiswa.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNamaMahasiswa.Location = new System.Drawing.Point(1164, 73);
+            this.lblNamaMahasiswa.Location = new System.Drawing.Point(582, 38);
+            this.lblNamaMahasiswa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNamaMahasiswa.Name = "lblNamaMahasiswa";
-            this.lblNamaMahasiswa.Size = new System.Drawing.Size(350, 45);
+            this.lblNamaMahasiswa.Size = new System.Drawing.Size(177, 23);
             this.lblNamaMahasiswa.TabIndex = 29;
             this.lblNamaMahasiswa.Text = "(Nama Mahasiswa)";
             // 
@@ -204,9 +221,10 @@
             // 
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.Font = new System.Drawing.Font("Calibri Light", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.Location = new System.Drawing.Point(1172, 139);
+            this.btnLogout.Location = new System.Drawing.Point(586, 72);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(79, 41);
+            this.btnLogout.Size = new System.Drawing.Size(40, 21);
             this.btnLogout.TabIndex = 30;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -215,9 +233,10 @@
             // 
             this.lblInfoPribadi.AutoSize = true;
             this.lblInfoPribadi.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPribadi.Location = new System.Drawing.Point(157, 295);
+            this.lblInfoPribadi.Location = new System.Drawing.Point(78, 124);
+            this.lblInfoPribadi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfoPribadi.Name = "lblInfoPribadi";
-            this.lblInfoPribadi.Size = new System.Drawing.Size(229, 50);
+            this.lblInfoPribadi.Size = new System.Drawing.Size(118, 25);
             this.lblInfoPribadi.TabIndex = 31;
             this.lblInfoPribadi.Text = "Info Pribadi";
             // 
@@ -225,9 +244,10 @@
             // 
             this.lblNamaLengkap.AutoSize = true;
             this.lblNamaLengkap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNamaLengkap.Location = new System.Drawing.Point(160, 355);
+            this.lblNamaLengkap.Location = new System.Drawing.Point(80, 156);
+            this.lblNamaLengkap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNamaLengkap.Name = "lblNamaLengkap";
-            this.lblNamaLengkap.Size = new System.Drawing.Size(212, 31);
+            this.lblNamaLengkap.Size = new System.Drawing.Size(112, 17);
             this.lblNamaLengkap.TabIndex = 32;
             this.lblNamaLengkap.Text = "Nama Lengkap :";
             // 
@@ -235,9 +255,10 @@
             // 
             this.lblNim.AutoSize = true;
             this.lblNim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNim.Location = new System.Drawing.Point(160, 396);
+            this.lblNim.Location = new System.Drawing.Point(80, 177);
+            this.lblNim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNim.Name = "lblNim";
-            this.lblNim.Size = new System.Drawing.Size(212, 31);
+            this.lblNim.Size = new System.Drawing.Size(116, 17);
             this.lblNim.TabIndex = 33;
             this.lblNim.Text = "NIM                    :";
             // 
@@ -245,9 +266,10 @@
             // 
             this.lblFakultas.AutoSize = true;
             this.lblFakultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFakultas.Location = new System.Drawing.Point(162, 439);
+            this.lblFakultas.Location = new System.Drawing.Point(81, 199);
+            this.lblFakultas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFakultas.Name = "lblFakultas";
-            this.lblFakultas.Size = new System.Drawing.Size(210, 31);
+            this.lblFakultas.Size = new System.Drawing.Size(113, 17);
             this.lblFakultas.TabIndex = 34;
             this.lblFakultas.Text = "Fakultas            :";
             // 
@@ -255,9 +277,10 @@
             // 
             this.lblJurusan.AutoSize = true;
             this.lblJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJurusan.Location = new System.Drawing.Point(162, 480);
+            this.lblJurusan.Location = new System.Drawing.Point(81, 221);
+            this.lblJurusan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJurusan.Name = "lblJurusan";
-            this.lblJurusan.Size = new System.Drawing.Size(210, 31);
+            this.lblJurusan.Size = new System.Drawing.Size(115, 17);
             this.lblJurusan.TabIndex = 35;
             this.lblJurusan.Text = "Jurusan             :";
             // 
@@ -265,9 +288,10 @@
             // 
             this.lblValNamaLengkap.AutoSize = true;
             this.lblValNamaLengkap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValNamaLengkap.Location = new System.Drawing.Point(382, 355);
+            this.lblValNamaLengkap.Location = new System.Drawing.Point(191, 156);
+            this.lblValNamaLengkap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValNamaLengkap.Name = "lblValNamaLengkap";
-            this.lblValNamaLengkap.Size = new System.Drawing.Size(38, 31);
+            this.lblValNamaLengkap.Size = new System.Drawing.Size(20, 17);
             this.lblValNamaLengkap.TabIndex = 36;
             this.lblValNamaLengkap.Text = "...";
             // 
@@ -275,9 +299,10 @@
             // 
             this.lblValNim.AutoSize = true;
             this.lblValNim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValNim.Location = new System.Drawing.Point(382, 396);
+            this.lblValNim.Location = new System.Drawing.Point(191, 177);
+            this.lblValNim.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValNim.Name = "lblValNim";
-            this.lblValNim.Size = new System.Drawing.Size(38, 31);
+            this.lblValNim.Size = new System.Drawing.Size(20, 17);
             this.lblValNim.TabIndex = 37;
             this.lblValNim.Text = "...";
             // 
@@ -285,9 +310,10 @@
             // 
             this.lblValFakultas.AutoSize = true;
             this.lblValFakultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValFakultas.Location = new System.Drawing.Point(382, 439);
+            this.lblValFakultas.Location = new System.Drawing.Point(191, 199);
+            this.lblValFakultas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValFakultas.Name = "lblValFakultas";
-            this.lblValFakultas.Size = new System.Drawing.Size(38, 31);
+            this.lblValFakultas.Size = new System.Drawing.Size(20, 17);
             this.lblValFakultas.TabIndex = 38;
             this.lblValFakultas.Text = "...";
             // 
@@ -295,9 +321,10 @@
             // 
             this.lblValJurusan.AutoSize = true;
             this.lblValJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValJurusan.Location = new System.Drawing.Point(382, 480);
+            this.lblValJurusan.Location = new System.Drawing.Point(191, 221);
+            this.lblValJurusan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValJurusan.Name = "lblValJurusan";
-            this.lblValJurusan.Size = new System.Drawing.Size(38, 31);
+            this.lblValJurusan.Size = new System.Drawing.Size(20, 17);
             this.lblValJurusan.TabIndex = 39;
             this.lblValJurusan.Text = "...";
             // 
@@ -305,9 +332,10 @@
             // 
             this.lblInfoPoin.AutoSize = true;
             this.lblInfoPoin.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPoin.Location = new System.Drawing.Point(157, 583);
+            this.lblInfoPoin.Location = new System.Drawing.Point(78, 274);
+            this.lblInfoPoin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInfoPoin.Name = "lblInfoPoin";
-            this.lblInfoPoin.Size = new System.Drawing.Size(181, 50);
+            this.lblInfoPoin.Size = new System.Drawing.Size(94, 25);
             this.lblInfoPoin.TabIndex = 40;
             this.lblInfoPoin.Text = "Info Poin";
             // 
@@ -315,9 +343,10 @@
             // 
             this.lblTotalPoin.AutoSize = true;
             this.lblTotalPoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPoin.Location = new System.Drawing.Point(160, 643);
+            this.lblTotalPoin.Location = new System.Drawing.Point(80, 305);
+            this.lblTotalPoin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalPoin.Name = "lblTotalPoin";
-            this.lblTotalPoin.Size = new System.Drawing.Size(256, 31);
+            this.lblTotalPoin.Size = new System.Drawing.Size(140, 17);
             this.lblTotalPoin.TabIndex = 41;
             this.lblTotalPoin.Text = "Total Poin                :";
             // 
@@ -325,9 +354,10 @@
             // 
             this.lblPoinDitebus.AutoSize = true;
             this.lblPoinDitebus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoinDitebus.Location = new System.Drawing.Point(160, 685);
+            this.lblPoinDitebus.Location = new System.Drawing.Point(80, 327);
+            this.lblPoinDitebus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoinDitebus.Name = "lblPoinDitebus";
-            this.lblPoinDitebus.Size = new System.Drawing.Size(253, 31);
+            this.lblPoinDitebus.Size = new System.Drawing.Size(133, 17);
             this.lblPoinDitebus.TabIndex = 42;
             this.lblPoinDitebus.Text = "Poin Yang Ditebus :";
             // 
@@ -335,9 +365,10 @@
             // 
             this.lblPoinSaatIni.AutoSize = true;
             this.lblPoinSaatIni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoinSaatIni.Location = new System.Drawing.Point(162, 732);
+            this.lblPoinSaatIni.Location = new System.Drawing.Point(81, 352);
+            this.lblPoinSaatIni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoinSaatIni.Name = "lblPoinSaatIni";
-            this.lblPoinSaatIni.Size = new System.Drawing.Size(252, 31);
+            this.lblPoinSaatIni.Size = new System.Drawing.Size(135, 17);
             this.lblPoinSaatIni.TabIndex = 43;
             this.lblPoinSaatIni.Text = "Poin Saat Ini           :";
             // 
@@ -345,9 +376,10 @@
             // 
             this.lblValTotalPoin.AutoSize = true;
             this.lblValTotalPoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValTotalPoin.Location = new System.Drawing.Point(426, 643);
+            this.lblValTotalPoin.Location = new System.Drawing.Point(213, 305);
+            this.lblValTotalPoin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValTotalPoin.Name = "lblValTotalPoin";
-            this.lblValTotalPoin.Size = new System.Drawing.Size(38, 31);
+            this.lblValTotalPoin.Size = new System.Drawing.Size(20, 17);
             this.lblValTotalPoin.TabIndex = 44;
             this.lblValTotalPoin.Text = "...";
             // 
@@ -355,9 +387,10 @@
             // 
             this.lblValPoinDitebus.AutoSize = true;
             this.lblValPoinDitebus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValPoinDitebus.Location = new System.Drawing.Point(426, 685);
+            this.lblValPoinDitebus.Location = new System.Drawing.Point(213, 327);
+            this.lblValPoinDitebus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValPoinDitebus.Name = "lblValPoinDitebus";
-            this.lblValPoinDitebus.Size = new System.Drawing.Size(38, 31);
+            this.lblValPoinDitebus.Size = new System.Drawing.Size(20, 17);
             this.lblValPoinDitebus.TabIndex = 45;
             this.lblValPoinDitebus.Text = "...";
             // 
@@ -365,9 +398,10 @@
             // 
             this.lblValPoinSaatIni.AutoSize = true;
             this.lblValPoinSaatIni.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValPoinSaatIni.Location = new System.Drawing.Point(426, 732);
+            this.lblValPoinSaatIni.Location = new System.Drawing.Point(213, 352);
+            this.lblValPoinSaatIni.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblValPoinSaatIni.Name = "lblValPoinSaatIni";
-            this.lblValPoinSaatIni.Size = new System.Drawing.Size(38, 31);
+            this.lblValPoinSaatIni.Size = new System.Drawing.Size(20, 17);
             this.lblValPoinSaatIni.TabIndex = 46;
             this.lblValPoinSaatIni.Text = "...";
             // 
@@ -375,9 +409,10 @@
             // 
             this.lblListPekerjaan.AutoSize = true;
             this.lblListPekerjaan.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListPekerjaan.Location = new System.Drawing.Point(989, 295);
+            this.lblListPekerjaan.Location = new System.Drawing.Point(494, 125);
+            this.lblListPekerjaan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblListPekerjaan.Name = "lblListPekerjaan";
-            this.lblListPekerjaan.Size = new System.Drawing.Size(262, 50);
+            this.lblListPekerjaan.Size = new System.Drawing.Size(134, 25);
             this.lblListPekerjaan.TabIndex = 47;
             this.lblListPekerjaan.Text = "List Pekerjaan";
             // 
@@ -385,9 +420,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(992, 355);
+            this.label2.Location = new System.Drawing.Point(496, 185);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 31);
+            this.label2.Size = new System.Drawing.Size(8, 17);
             this.label2.TabIndex = 48;
             this.label2.Text = "\r\n";
             // 
@@ -395,9 +431,10 @@
             // 
             this.lblPekerjaan2.AutoSize = true;
             this.lblPekerjaan2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPekerjaan2.Location = new System.Drawing.Point(993, 396);
+            this.lblPekerjaan2.Location = new System.Drawing.Point(496, 178);
+            this.lblPekerjaan2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPekerjaan2.Name = "lblPekerjaan2";
-            this.lblPekerjaan2.Size = new System.Drawing.Size(572, 31);
+            this.lblPekerjaan2.Size = new System.Drawing.Size(304, 17);
             this.lblPekerjaan2.TabIndex = 49;
             this.lblPekerjaan2.Text = "2. Membersihkan Lingkungan  : 1 jam  -  4 poin";
             // 
@@ -405,18 +442,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(993, 483);
+            this.label4.Location = new System.Drawing.Point(496, 251);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 31);
+            this.label4.Size = new System.Drawing.Size(0, 17);
             this.label4.TabIndex = 51;
             // 
             // lblPekerjaan3
             // 
             this.lblPekerjaan3.AutoSize = true;
             this.lblPekerjaan3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPekerjaan3.Location = new System.Drawing.Point(993, 439);
+            this.lblPekerjaan3.Location = new System.Drawing.Point(496, 200);
+            this.lblPekerjaan3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPekerjaan3.Name = "lblPekerjaan3";
-            this.lblPekerjaan3.Size = new System.Drawing.Size(576, 31);
+            this.lblPekerjaan3.Size = new System.Drawing.Size(309, 17);
             this.lblPekerjaan3.TabIndex = 53;
             this.lblPekerjaan3.Text = "3. Membersihkan Toilet             : 1 jam  -  3 poin";
             // 
@@ -424,9 +463,10 @@
             // 
             this.lblPekerjaan4.AutoSize = true;
             this.lblPekerjaan4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPekerjaan4.Location = new System.Drawing.Point(993, 483);
+            this.lblPekerjaan4.Location = new System.Drawing.Point(496, 223);
+            this.lblPekerjaan4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPekerjaan4.Name = "lblPekerjaan4";
-            this.lblPekerjaan4.Size = new System.Drawing.Size(575, 31);
+            this.lblPekerjaan4.Size = new System.Drawing.Size(307, 17);
             this.lblPekerjaan4.TabIndex = 54;
             this.lblPekerjaan4.Text = "4. Membersihkan Parkiran        : 1 jam  -  2 poin";
             // 
@@ -434,9 +474,10 @@
             // 
             this.lblPekerjaan1.AutoSize = true;
             this.lblPekerjaan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPekerjaan1.Location = new System.Drawing.Point(993, 355);
+            this.lblPekerjaan1.Location = new System.Drawing.Point(496, 157);
+            this.lblPekerjaan1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPekerjaan1.Name = "lblPekerjaan1";
-            this.lblPekerjaan1.Size = new System.Drawing.Size(573, 31);
+            this.lblPekerjaan1.Size = new System.Drawing.Size(311, 17);
             this.lblPekerjaan1.TabIndex = 55;
             this.lblPekerjaan1.Text = "1. Menggali Lubang                   : 1 jam  -  5 poin";
             // 
@@ -444,9 +485,10 @@
             // 
             this.lblPilihPekerjaan.AutoSize = true;
             this.lblPilihPekerjaan.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPilihPekerjaan.Location = new System.Drawing.Point(990, 568);
+            this.lblPilihPekerjaan.Location = new System.Drawing.Point(495, 265);
+            this.lblPilihPekerjaan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPilihPekerjaan.Name = "lblPilihPekerjaan";
-            this.lblPilihPekerjaan.Size = new System.Drawing.Size(280, 50);
+            this.lblPilihPekerjaan.Size = new System.Drawing.Size(142, 25);
             this.lblPilihPekerjaan.TabIndex = 60;
             this.lblPilihPekerjaan.Text = "Pilih Pekerjaan";
             // 
@@ -455,88 +497,29 @@
             this.lblNomor.AutoSize = true;
             this.lblNomor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomor.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblNomor.Location = new System.Drawing.Point(994, 752);
+            this.lblNomor.Location = new System.Drawing.Point(497, 325);
+            this.lblNomor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomor.Name = "lblNomor";
-            this.lblNomor.Size = new System.Drawing.Size(470, 25);
+            this.lblNomor.Size = new System.Drawing.Size(229, 13);
             this.lblNomor.TabIndex = 61;
             this.lblNomor.Text = "Pilih nomor sesuai dengan list pekerjaan di atas";
             // 
             // Garis
             // 
             this.Garis.BackColor = System.Drawing.Color.Black;
-            this.Garis.Location = new System.Drawing.Point(163, 545);
+            this.Garis.Location = new System.Drawing.Point(82, 254);
+            this.Garis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Garis.Name = "Garis";
-            this.Garis.Size = new System.Drawing.Size(651, 7);
+            this.Garis.Size = new System.Drawing.Size(326, 4);
             this.Garis.TabIndex = 62;
             this.Garis.Text = "...";
-            // 
-            // btnPekerjaan2
-            // 
-            this.btnPekerjaan2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPekerjaan2.BackgroundImage")));
-            this.btnPekerjaan2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPekerjaan2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPekerjaan2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPekerjaan2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPekerjaan2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPekerjaan2.Location = new System.Drawing.Point(1104, 647);
-            this.btnPekerjaan2.Name = "btnPekerjaan2";
-            this.btnPekerjaan2.Size = new System.Drawing.Size(73, 69);
-            this.btnPekerjaan2.TabIndex = 59;
-            this.btnPekerjaan2.Text = "2";
-            this.btnPekerjaan2.UseVisualStyleBackColor = true;
-            // 
-            // btnPekerjaan3
-            // 
-            this.btnPekerjaan3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPekerjaan3.BackgroundImage")));
-            this.btnPekerjaan3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPekerjaan3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPekerjaan3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPekerjaan3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPekerjaan3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPekerjaan3.Location = new System.Drawing.Point(1217, 647);
-            this.btnPekerjaan3.Name = "btnPekerjaan3";
-            this.btnPekerjaan3.Size = new System.Drawing.Size(73, 69);
-            this.btnPekerjaan3.TabIndex = 58;
-            this.btnPekerjaan3.Text = "3";
-            this.btnPekerjaan3.UseVisualStyleBackColor = true;
-            // 
-            // btnPekerjaan4
-            // 
-            this.btnPekerjaan4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPekerjaan4.BackgroundImage")));
-            this.btnPekerjaan4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPekerjaan4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPekerjaan4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPekerjaan4.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPekerjaan4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPekerjaan4.Location = new System.Drawing.Point(1332, 647);
-            this.btnPekerjaan4.Name = "btnPekerjaan4";
-            this.btnPekerjaan4.Size = new System.Drawing.Size(73, 69);
-            this.btnPekerjaan4.TabIndex = 57;
-            this.btnPekerjaan4.Text = "4";
-            this.btnPekerjaan4.UseVisualStyleBackColor = true;
-            // 
-            // btnPekerjaan1
-            // 
-            this.btnPekerjaan1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPekerjaan1.BackgroundImage")));
-            this.btnPekerjaan1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPekerjaan1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPekerjaan1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPekerjaan1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPekerjaan1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPekerjaan1.Location = new System.Drawing.Point(998, 647);
-            this.btnPekerjaan1.Name = "btnPekerjaan1";
-            this.btnPekerjaan1.Size = new System.Drawing.Size(73, 69);
-            this.btnPekerjaan1.TabIndex = 56;
-            this.btnPekerjaan1.Text = "1";
-            this.btnPekerjaan1.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 46);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(195, 159);
+            this.pictureBox1.Size = new System.Drawing.Size(109, 83);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
@@ -544,9 +527,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(97, 295);
+            this.pictureBox2.Location = new System.Drawing.Point(48, 124);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 54);
+            this.pictureBox2.Size = new System.Drawing.Size(27, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 63;
             this.pictureBox2.TabStop = false;
@@ -554,9 +538,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(88, 583);
+            this.pictureBox3.Location = new System.Drawing.Point(44, 274);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(63, 64);
+            this.pictureBox3.Size = new System.Drawing.Size(32, 33);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 64;
             this.pictureBox3.TabStop = false;
@@ -564,9 +549,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(354, 60);
+            this.pictureBox4.Location = new System.Drawing.Point(177, 31);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(110, 107);
+            this.pictureBox4.Size = new System.Drawing.Size(55, 56);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 65;
             this.pictureBox4.TabStop = false;
@@ -574,9 +560,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(1038, 60);
+            this.pictureBox5.Location = new System.Drawing.Point(519, 31);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(94, 94);
+            this.pictureBox5.Size = new System.Drawing.Size(47, 49);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 66;
             this.pictureBox5.TabStop = false;
@@ -584,9 +571,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(931, 295);
+            this.pictureBox6.Location = new System.Drawing.Point(466, 125);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(52, 54);
+            this.pictureBox6.Size = new System.Drawing.Size(26, 28);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 67;
             this.pictureBox6.TabStop = false;
@@ -594,9 +582,10 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(941, 346);
+            this.pictureBox7.Location = new System.Drawing.Point(470, 152);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(31, 215);
+            this.pictureBox7.Size = new System.Drawing.Size(16, 112);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 68;
             this.pictureBox7.TabStop = false;
@@ -604,18 +593,138 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(931, 567);
+            this.pictureBox8.Location = new System.Drawing.Point(466, 265);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(51, 51);
+            this.pictureBox8.Size = new System.Drawing.Size(26, 27);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 69;
             this.pictureBox8.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(500, 390);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 22);
+            this.textBox1.TabIndex = 70;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(466, 362);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(26, 27);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 72;
+            this.pictureBox9.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(495, 362);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 25);
+            this.label1.TabIndex = 71;
+            this.label1.Text = "Jam Kerja";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(556, 392);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 17);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Jam";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(499, 437);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5);
+            this.button1.Size = new System.Drawing.Size(123, 39);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "Kirim Permintaan";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(500, 299);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(31, 17);
+            this.radioButton1.TabIndex = 75;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(541, 299);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(31, 17);
+            this.radioButton2.TabIndex = 76;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(584, 299);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(31, 17);
+            this.radioButton3.TabIndex = 77;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(627, 299);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(31, 17);
+            this.radioButton4.TabIndex = 78;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "4";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label5.Location = new System.Drawing.Point(497, 415);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.TabIndex = 79;
+            this.label5.Text = "Isi sesuai jam kerja";
+            // 
             // MahasiswaPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 865);
+            this.ClientSize = new System.Drawing.Size(838, 545);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -626,10 +735,6 @@
             this.Controls.Add(this.Garis);
             this.Controls.Add(this.lblNomor);
             this.Controls.Add(this.lblPilihPekerjaan);
-            this.Controls.Add(this.btnPekerjaan2);
-            this.Controls.Add(this.btnPekerjaan3);
-            this.Controls.Add(this.btnPekerjaan4);
-            this.Controls.Add(this.btnPekerjaan1);
             this.Controls.Add(this.lblPekerjaan1);
             this.Controls.Add(this.lblPekerjaan4);
             this.Controls.Add(this.lblPekerjaan3);
@@ -662,6 +767,7 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MahasiswaPage";
             this.Text = "MahasiswaPage";
             this.menuStrip1.ResumeLayout(false);
@@ -674,6 +780,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,10 +825,6 @@
         private System.Windows.Forms.Label lblPekerjaan3;
         private System.Windows.Forms.Label lblPekerjaan4;
         private System.Windows.Forms.Label lblPekerjaan1;
-        private System.Windows.Forms.Button btnPekerjaan1;
-        private System.Windows.Forms.Button btnPekerjaan4;
-        private System.Windows.Forms.Button btnPekerjaan3;
-        private System.Windows.Forms.Button btnPekerjaan2;
         private System.Windows.Forms.Label lblPilihPekerjaan;
         private System.Windows.Forms.Label lblNomor;
         private System.Windows.Forms.Label Garis;
@@ -732,5 +835,15 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Label label5;
     }
 }

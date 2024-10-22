@@ -16,5 +16,10 @@ namespace PoinUnklabVispro
         {
             InitializeComponent();
         }
+
+        private void HalamanUtama_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

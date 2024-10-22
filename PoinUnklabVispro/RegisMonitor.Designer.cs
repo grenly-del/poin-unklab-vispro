@@ -134,7 +134,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,11 +173,12 @@
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
             this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
+            this.mahasiswaToolStripMenuItem.Click += new System.EventHandler(this.mahasiswaToolStripMenuItem_Click);
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
             // 
             // loginToolStripMenuItem
@@ -185,6 +186,7 @@
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // label11
             // 
