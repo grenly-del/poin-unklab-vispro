@@ -55,6 +55,18 @@
     <Compile Include="HalamanUtama.Designer.cs">
       <DependentUpon>HalamanUtama.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginMahasiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginMahasiswa.Designer.cs">
+      <DependentUpon>LoginMahasiswa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginMonitor.Designer.cs">
+      <DependentUpon>LoginMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HalamanUtama.resx">
       <DependentUpon>HalamanUtama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginMahasiswa.resx">
+      <DependentUpon>LoginMahasiswa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginMonitor.resx">
+      <DependentUpon>LoginMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
