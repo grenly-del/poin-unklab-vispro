@@ -60,3 +60,35 @@ C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\Po
 C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.exe
 C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.pdb
 C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.MonitorPages.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\PoinUnklabVispro.exe.config
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\PoinUnklabVispro.exe
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\PoinUnklabVispro.pdb
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Data.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Web.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\Google.Protobuf.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\ZstdNet.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\BouncyCastle.Crypto.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\Ubiety.Dns.Core.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\System.Buffers.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\K4os.Compression.LZ4.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\K4os.Hash.xxHash.dll
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Data.xml
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Data.EntityFramework.xml
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\bin\Debug\MySql.Web.xml
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.csproj.AssemblyReference.cache
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.csproj.SuggestedBindingRedirects.cache
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.exe.config
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.HalamanUtama.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.LoginPage.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.MahasiswaPage.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.MonitorPages.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.RegisMonitor.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.RegisMahasiswa.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.Properties.Resources.resources
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.csproj.GenerateResource.cache
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.csproj.CoreCompileInputs.cache
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnkl.8A5539EE.Up2Date
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.exe
+C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.pdb
