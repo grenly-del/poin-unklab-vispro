@@ -99,30 +99,32 @@
             this.btnMonitor.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonitor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnMonitor.Location = new System.Drawing.Point(427, 265);
-            this.btnMonitor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMonitor.Margin = new System.Windows.Forms.Padding(2);
             this.btnMonitor.Name = "btnMonitor";
             this.btnMonitor.Size = new System.Drawing.Size(92, 33);
             this.btnMonitor.TabIndex = 26;
             this.btnMonitor.Text = "Monitor";
             this.btnMonitor.UseVisualStyleBackColor = true;
+            this.btnMonitor.Click += new System.EventHandler(this.btnMonitor_Click);
             // 
             // btnMahasiswa
             // 
             this.btnMahasiswa.BackgroundImage = global::PoinUnklabVispro.Properties.Resources.bg_button;
             this.btnMahasiswa.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMahasiswa.Location = new System.Drawing.Point(172, 260);
-            this.btnMahasiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMahasiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnMahasiswa.Name = "btnMahasiswa";
             this.btnMahasiswa.Size = new System.Drawing.Size(98, 38);
             this.btnMahasiswa.TabIndex = 25;
             this.btnMahasiswa.Text = "Mahasiswa";
             this.btnMahasiswa.UseVisualStyleBackColor = true;
+            this.btnMahasiswa.Click += new System.EventHandler(this.btnMahasiswa_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PoinUnklabVispro.Properties.Resources.admin;
             this.pictureBox3.Location = new System.Drawing.Point(398, 154);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(149, 154);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -143,7 +145,7 @@
             // 
             this.pictureBox1.Image = global::PoinUnklabVispro.Properties.Resources.mahasiswa;
             this.pictureBox1.Location = new System.Drawing.Point(146, 148);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(153, 160);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -161,7 +163,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HalamanUtama";
             this.Text = "HalamanUtama";
             this.Load += new System.EventHandler(this.HalamanUtama_Load);

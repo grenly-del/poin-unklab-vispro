@@ -90,13 +90,13 @@
             // mahasiswaToolStripMenuItem
             // 
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
             // 
             // loginToolStripMenuItem
@@ -111,13 +111,13 @@
             // mahasiswaToolStripMenuItem1
             // 
             this.mahasiswaToolStripMenuItem1.Name = "mahasiswaToolStripMenuItem1";
-            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem1.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem1
             // 
             this.monitorToolStripMenuItem1.Name = "monitorToolStripMenuItem1";
-            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem1.Text = "Monitor";
             // 
             // label11
@@ -136,10 +136,11 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(474, 278);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(228, 30);
+            this.btnLogin.Size = new System.Drawing.Size(179, 30);
             this.btnLogin.TabIndex = 47;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPasswordMhs
             // 

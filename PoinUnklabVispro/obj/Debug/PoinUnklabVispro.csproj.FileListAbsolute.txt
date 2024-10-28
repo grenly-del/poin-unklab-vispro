@@ -92,3 +92,5 @@ C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\o
 C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnkl.8A5539EE.Up2Date
 C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.exe
 C:\Unklab\Visual Programing\PROJECT VISPRO\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.pdb
+C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.LoginMahasiswa.resources
+C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.LoginMonitor.resources

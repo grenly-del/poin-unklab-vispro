@@ -132,14 +132,14 @@
             // mahasiswaToolStripMenuItem
             // 
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
             this.mahasiswaToolStripMenuItem.Click += new System.EventHandler(this.mahasiswaToolStripMenuItem_Click);
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
             this.monitorToolStripMenuItem.Click += new System.EventHandler(this.monitorToolStripMenuItem_Click);
             // 
@@ -770,6 +770,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MahasiswaPage";
             this.Text = "MahasiswaPage";
+            this.Load += new System.EventHandler(this.MahasiswaPage_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

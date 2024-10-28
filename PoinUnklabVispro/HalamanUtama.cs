@@ -21,5 +21,19 @@ namespace PoinUnklabVispro
         {
 
         }
+
+        private void btnMahasiswa_Click(object sender, EventArgs e)
+        {
+            LoginMahasiswa frmlgnmhs = new LoginMahasiswa();
+            frmlgnmhs.Show();
+            this.Hide();
+        }
+
+        private void btnMonitor_Click(object sender, EventArgs e)
+        {
+            LoginMonitor frmlgnmonitor = new LoginMonitor();
+            frmlgnmonitor.Show();
+            this.Hide();
+        }
     }
 }
