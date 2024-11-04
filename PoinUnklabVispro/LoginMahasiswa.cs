@@ -36,44 +36,56 @@ namespace PoinUnklabVispro
         {
             try
             {
-                if (txtRegisMhs.Text != "" && txtPasswordMhs.Text != "")
+                if (!string.IsNullOrEmpty(txtRegisMhs.Text) && !string.IsNullOrEmpty(txtPasswordMhs.Text))
                 {
-                    query = string.Format("select * from tb_mahasiswa where no_regis = '{0}'", txtRegisMhs.Text);
+                    query = "SELECT * FROM tb_mahasiswa WHERE no_regis = @no_regis";
                     ds.Clear();
                     koneksi.Open();
-                    perintah = new MySqlCommand(query, koneksi);
-                    adapter = new MySqlDataAdapter(perintah);
-                    perintah.ExecuteNonQuery();
-                    adapter.Fill(ds);
+
+                    using (MySqlCommand perintah = new MySqlCommand(query, koneksi))
+                    {
+                        perintah.Parameters.AddWithValue("@no_regis", txtRegisMhs.Text);
+                        adapter = new MySqlDataAdapter(perintah);
+                        adapter.Fill(ds);
+                    }
+
                     koneksi.Close();
+
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        foreach (DataRow kolom in ds.Tables[0].Rows)
-                        {
-                            string sandi;
-                            sandi = kolom["password"].ToString();
-                            if (sandi == txtPasswordMhs.Text)
-                            {
-                                MahasiswaPage frmMain = new MahasiswaPage(kolom["id_pengguna"].ToString());
-                                frmMain.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Anda salah input password");
-                            }
-                        }
+                        DataRow kolom = ds.Tables[0].Rows[0];
+                        string sandi = kolom["password"].ToString();
 
+                        if (sandi == txtPasswordMhs.Text)
+                        {
+                            MahasiswaPage frmMain = new MahasiswaPage(kolom["id_pengguna"].ToString());
+                            frmMain.Show();
+                            this.Hide();  // Sembunyikan form login
+                        }
+                        else
+                        {
+                            MessageBox.Show("Anda salah input password");
+                        }
                     }
                     else
                     {
                         MessageBox.Show("No.Regis tidak ditemukan");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Masukkan No. Regis dan Password!");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            finally
+            {
+                koneksi.Close();
+            }
         }
+
     }
 }

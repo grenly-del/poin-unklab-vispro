@@ -57,48 +57,71 @@ namespace PoinUnklabVispro
             this.Hide();
         }
 
+        private void lblNamaMahasiswa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblValTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void MahasiswaPage_Load(object sender, EventArgs e)
         {
             try
             {
-                if (parameter != "")
+                if (!string.IsNullOrEmpty(parameter))
                 {
-                    query = string.Format("select * from tb_mahasiswa where id_pengguna = '{0}'", parameter);
+                    query = "SELECT * FROM tb_mahasiswa WHERE id_pengguna = @id_pengguna";
                     ds.Clear();
                     koneksi.Open();
-                    perintah = new MySqlCommand(query, koneksi);
-                    adapter = new MySqlDataAdapter(perintah);
-                    perintah.ExecuteNonQuery();
-                    adapter.Fill(ds);
+
+                    using (MySqlCommand perintah = new MySqlCommand(query, koneksi))
+                    {
+                        perintah.Parameters.AddWithValue("@id_pengguna", parameter);
+                        adapter = new MySqlDataAdapter(perintah);
+                        adapter.Fill(ds);
+                    }
+
                     koneksi.Close();
+
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        foreach (DataRow kolom in ds.Tables[0].Rows)
-                        {
-                            lblValNamaLengkap.Text = kolom["nama_mahasiswa"].ToString();
-                            lblValNim.Text = kolom["nim"].ToString();
-                            lblValJurusan.Text = kolom["prodi"].ToString();
-                            lblValFakultas.Text = kolom["fakultas"].ToString();
+                        DataRow kolom = ds.Tables[0].Rows[0];
 
-                        }
-                        
+                        // Info Pribadi
+                        lblValNamaLengkap.Text = kolom["nama_mahasiswa"].ToString();
+                        lblValNim.Text = kolom["nim"].ToString();
+                        lblValJurusan.Text = kolom["prodi"].ToString();
+                        lblValFakultas.Text = kolom["fakultas"].ToString();
+
+                        // Nama Mahasiswa di kanan atas
+                        lblNamaMahasiswa.Text = kolom["nama_mahasiswa"].ToString();
+
+                        // Load data poin mahasiswa
+                        //LoadPoinMahasiswa(kolom["id_pengguna"].ToString());
                     }
                     else
                     {
-                        MessageBox.Show("Data Tidak Ada !!");
-                        
+                        MessageBox.Show("Data Tidak Ada!");
                     }
-
                 }
                 else
                 {
-                    MessageBox.Show("Data Yang Anda Pilih Tidak Ada !!");
+                    MessageBox.Show("Data Yang Anda Pilih Tidak Ada!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            finally
+            {
+                koneksi.Close();
+            }
         }
+
+
     }
 }
