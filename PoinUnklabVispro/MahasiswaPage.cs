@@ -67,6 +67,64 @@ namespace PoinUnklabVispro
 
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoginMahasiswa loginMahasiswa = new LoginMahasiswa();
+            loginMahasiswa.Show();
+            this.Hide();
+            parameter = "";
+        }
+
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadPoinMahasiswa(string idPengguna)
+        {
+            try
+            {
+                query = "SELECT jumlah_poin, poin_sisa FROM tb_poin WHERE id_mahasiswa = @id_mahasiswa";
+                ds.Clear();
+                koneksi.Open();
+
+                using (MySqlCommand perintah = new MySqlCommand(query, koneksi))
+                {
+                    perintah.Parameters.AddWithValue("@id_mahasiswa", idPengguna);
+                    adapter = new MySqlDataAdapter(perintah);
+                    adapter.Fill(ds);
+                }
+
+                koneksi.Close();
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow kolom = ds.Tables[0].Rows[0];
+
+                    // Tampilkan Total dan Dikerjakan pada label yang sesuai
+                    int jumlahPoin = Convert.ToInt32(kolom["jumlah_poin"]);
+                    int poinSisa = Convert.ToInt32(kolom["poin_sisa"]);
+
+                    // Tampilkan Total dan Dikerjakan pada label yang sesuai
+                    lblValTotal.Text = jumlahPoin.ToString();
+                    lblValDikerjakan.Text = (jumlahPoin - poinSisa).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Data Poin Tidak Ada!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
+
         private void MahasiswaPage_Load(object sender, EventArgs e)
         {
             try
@@ -100,7 +158,7 @@ namespace PoinUnklabVispro
                         lblNamaMahasiswa.Text = kolom["nama_mahasiswa"].ToString();
 
                         // Load data poin mahasiswa
-                        //LoadPoinMahasiswa(kolom["id_pengguna"].ToString());
+                        LoadPoinMahasiswa(parameter);
                     }
                     else
                     {
@@ -121,6 +179,7 @@ namespace PoinUnklabVispro
                 koneksi.Close();
             }
         }
+
 
 
     }
