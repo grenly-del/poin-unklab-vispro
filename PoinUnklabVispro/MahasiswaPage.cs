@@ -101,16 +101,30 @@ namespace PoinUnklabVispro
                 {
                     DataRow kolom = ds.Tables[0].Rows[0];
 
-                    // Tampilkan Total dan Dikerjakan pada label yang sesuai
+
                     int jumlahPoin = Convert.ToInt32(kolom["jumlah_poin"]);
                     int poinSisa = Convert.ToInt32(kolom["poin_sisa"]);
+                    int poinDitebus = jumlahPoin - poinSisa;
+                    int poinSaatIni = poinSisa;
+                    
+                    // tampilan poin dibagian bawah page
+                    lblValTotalPoin.Text = jumlahPoin.ToString();
+                    lblValPoinDitebus.Text = poinDitebus.ToString();
+                    lblValPoinSaatIni.Text = poinSaatIni.ToString();
 
-                    // Tampilkan Total dan Dikerjakan pada label yang sesuai
-                    lblValTotal.Text = jumlahPoin.ToString();
-                    lblValDikerjakan.Text = (jumlahPoin - poinSisa).ToString();
+                    // tampian poin dibagian atas page
+                    lblValTotal.Text = poinSaatIni.ToString();
+                    lblValDikerjakan.Text = poinDitebus.ToString();
                 }
                 else
-                {
+                {   
+                    // tampilan jika tidak ada data poin
+                    lblValTotalPoin.Text = "0";
+                    lblValPoinDitebus.Text = "0";
+                    lblValPoinSaatIni.Text = "0";
+
+                    lblValTotal.Text = "0";
+                    lblValDikerjakan.Text = "0";
                     MessageBox.Show("Data Poin Tidak Ada!");
                 }
             }
@@ -124,6 +138,21 @@ namespace PoinUnklabVispro
             }
         }
 
+
+        private void lblValTotalPoin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnKirimPermintaan_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void MahasiswaPage_Load(object sender, EventArgs e)
         {
@@ -148,16 +177,14 @@ namespace PoinUnklabVispro
                     {
                         DataRow kolom = ds.Tables[0].Rows[0];
 
-                        // Info Pribadi
+                        // Menampilkan Info Mahasiswa
                         lblValNamaLengkap.Text = kolom["nama_mahasiswa"].ToString();
                         lblValNim.Text = kolom["nim"].ToString();
                         lblValJurusan.Text = kolom["prodi"].ToString();
                         lblValFakultas.Text = kolom["fakultas"].ToString();
-
-                        // Nama Mahasiswa di kanan atas
                         lblNamaMahasiswa.Text = kolom["nama_mahasiswa"].ToString();
 
-                        // Load data poin mahasiswa
+                        // Memuat data poin mahasiswa
                         LoadPoinMahasiswa(parameter);
                     }
                     else
@@ -179,6 +206,7 @@ namespace PoinUnklabVispro
                 koneksi.Close();
             }
         }
+
 
 
 

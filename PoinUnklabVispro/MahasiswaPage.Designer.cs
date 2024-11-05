@@ -76,15 +76,15 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtJamKerja = new System.Windows.Forms.TextBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.btnKirimPermintaan = new System.Windows.Forms.Button();
+            this.btnPekerjaan1 = new System.Windows.Forms.RadioButton();
+            this.btnPekerjaan2 = new System.Windows.Forms.RadioButton();
+            this.btnPekerjaan3 = new System.Windows.Forms.RadioButton();
+            this.btnPekerjaan4 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,14 +109,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(1117, 30);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 28);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -126,7 +126,7 @@
             this.mahasiswaToolStripMenuItem,
             this.monitorToolStripMenuItem});
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(77, 28);
             this.registerToolStripMenuItem.Text = "Register";
             // 
             // mahasiswaToolStripMenuItem
@@ -146,7 +146,7 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(60, 28);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -367,6 +367,7 @@
             this.lblValTotalPoin.Size = new System.Drawing.Size(21, 20);
             this.lblValTotalPoin.TabIndex = 44;
             this.lblValTotalPoin.Text = "...";
+            this.lblValTotalPoin.Click += new System.EventHandler(this.lblValTotalPoin_Click);
             // 
             // lblValPoinDitebus
             // 
@@ -575,14 +576,14 @@
             this.pictureBox8.TabIndex = 69;
             this.pictureBox8.TabStop = false;
             // 
-            // textBox1
+            // txtJamKerja
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(667, 480);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(67, 26);
-            this.textBox1.TabIndex = 70;
+            this.txtJamKerja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJamKerja.Location = new System.Drawing.Point(667, 480);
+            this.txtJamKerja.Margin = new System.Windows.Forms.Padding(4);
+            this.txtJamKerja.Name = "txtJamKerja";
+            this.txtJamKerja.Size = new System.Drawing.Size(67, 26);
+            this.txtJamKerja.TabIndex = 70;
             // 
             // pictureBox9
             // 
@@ -615,66 +616,68 @@
             this.label3.TabIndex = 73;
             this.label3.Text = "Jam";
             // 
-            // button1
+            // btnKirimPermintaan
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(665, 538);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.button1.Size = new System.Drawing.Size(164, 48);
-            this.button1.TabIndex = 74;
-            this.button1.Text = "Kirim Permintaan";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnKirimPermintaan.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnKirimPermintaan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnKirimPermintaan.Location = new System.Drawing.Point(665, 538);
+            this.btnKirimPermintaan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKirimPermintaan.Name = "btnKirimPermintaan";
+            this.btnKirimPermintaan.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnKirimPermintaan.Size = new System.Drawing.Size(164, 48);
+            this.btnKirimPermintaan.TabIndex = 74;
+            this.btnKirimPermintaan.Text = "Kirim Permintaan";
+            this.btnKirimPermintaan.UseVisualStyleBackColor = false;
+            this.btnKirimPermintaan.Click += new System.EventHandler(this.btnKirimPermintaan_Click);
             // 
-            // radioButton1
+            // btnPekerjaan1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(667, 368);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 20);
-            this.radioButton1.TabIndex = 75;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnPekerjaan1.AutoSize = true;
+            this.btnPekerjaan1.Location = new System.Drawing.Point(667, 368);
+            this.btnPekerjaan1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPekerjaan1.Name = "btnPekerjaan1";
+            this.btnPekerjaan1.Size = new System.Drawing.Size(35, 20);
+            this.btnPekerjaan1.TabIndex = 75;
+            this.btnPekerjaan1.TabStop = true;
+            this.btnPekerjaan1.Text = "1";
+            this.btnPekerjaan1.UseVisualStyleBackColor = true;
+            this.btnPekerjaan1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // btnPekerjaan2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(721, 368);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 20);
-            this.radioButton2.TabIndex = 76;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnPekerjaan2.AutoSize = true;
+            this.btnPekerjaan2.Location = new System.Drawing.Point(721, 368);
+            this.btnPekerjaan2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPekerjaan2.Name = "btnPekerjaan2";
+            this.btnPekerjaan2.Size = new System.Drawing.Size(35, 20);
+            this.btnPekerjaan2.TabIndex = 76;
+            this.btnPekerjaan2.TabStop = true;
+            this.btnPekerjaan2.Text = "2";
+            this.btnPekerjaan2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // btnPekerjaan3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(779, 368);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(35, 20);
-            this.radioButton3.TabIndex = 77;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnPekerjaan3.AutoSize = true;
+            this.btnPekerjaan3.Location = new System.Drawing.Point(779, 368);
+            this.btnPekerjaan3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPekerjaan3.Name = "btnPekerjaan3";
+            this.btnPekerjaan3.Size = new System.Drawing.Size(35, 20);
+            this.btnPekerjaan3.TabIndex = 77;
+            this.btnPekerjaan3.TabStop = true;
+            this.btnPekerjaan3.Text = "3";
+            this.btnPekerjaan3.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // btnPekerjaan4
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(836, 368);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 20);
-            this.radioButton4.TabIndex = 78;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.btnPekerjaan4.AutoSize = true;
+            this.btnPekerjaan4.Location = new System.Drawing.Point(836, 368);
+            this.btnPekerjaan4.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPekerjaan4.Name = "btnPekerjaan4";
+            this.btnPekerjaan4.Size = new System.Drawing.Size(35, 20);
+            this.btnPekerjaan4.TabIndex = 78;
+            this.btnPekerjaan4.TabStop = true;
+            this.btnPekerjaan4.Text = "4";
+            this.btnPekerjaan4.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -693,15 +696,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 671);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPekerjaan4);
+            this.Controls.Add(this.btnPekerjaan3);
+            this.Controls.Add(this.btnPekerjaan2);
+            this.Controls.Add(this.btnPekerjaan1);
+            this.Controls.Add(this.btnKirimPermintaan);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtJamKerja);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -814,15 +817,15 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtJamKerja;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Button btnKirimPermintaan;
+        private System.Windows.Forms.RadioButton btnPekerjaan1;
+        private System.Windows.Forms.RadioButton btnPekerjaan2;
+        private System.Windows.Forms.RadioButton btnPekerjaan3;
+        private System.Windows.Forms.RadioButton btnPekerjaan4;
         private System.Windows.Forms.Label label5;
     }
 }
