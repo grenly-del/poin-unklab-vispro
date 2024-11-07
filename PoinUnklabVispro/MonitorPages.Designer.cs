@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitorPages));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNamaMonitor = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -42,21 +42,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TableInformasiMHS = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNamaMonitor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(735, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Grantly Sorongan";
+            this.lblNamaMonitor.AutoSize = true;
+            this.lblNamaMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamaMonitor.Location = new System.Drawing.Point(735, 12);
+            this.lblNamaMonitor.Name = "lblNamaMonitor";
+            this.lblNamaMonitor.Size = new System.Drawing.Size(140, 18);
+            this.lblNamaMonitor.TabIndex = 2;
+            this.lblNamaMonitor.Text = "Grantly Sorongan";
+            this.lblNamaMonitor.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -135,6 +137,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Logout";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -148,7 +151,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(261, 409);
+            this.label6.Location = new System.Drawing.Point(420, 409);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 12;
@@ -157,7 +160,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(306, 409);
+            this.label7.Location = new System.Drawing.Point(475, 409);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 13;
@@ -175,12 +178,23 @@
             this.TableInformasiMHS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableInformasiMHS.Size = new System.Drawing.Size(200, 100);
             this.TableInformasiMHS.TabIndex = 14;
+            this.TableInformasiMHS.Paint += new System.Windows.Forms.PaintEventHandler(this.TableInformasiMHS_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(253, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Jenis Pekerjaan";
             // 
             // MonitorPages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 530);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.TableInformasiMHS);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -193,7 +207,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNamaMonitor);
             this.Name = "MonitorPages";
             this.Text = "MonitorPages";
             this.Load += new System.EventHandler(this.MonitorPages_Load);
@@ -207,7 +221,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNamaMonitor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -220,5 +234,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel TableInformasiMHS;
+        private System.Windows.Forms.Label label1;
     }
 }

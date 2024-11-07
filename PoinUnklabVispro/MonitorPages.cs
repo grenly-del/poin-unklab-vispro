@@ -23,14 +23,15 @@ namespace PoinUnklabVispro
         private MySqlCommand perintah;
         private DataSet ds = new DataSet();
         private string alamat, query;
-        public MonitorPages()
+        private string idMonitor;
+        public MonitorPages(string idMonitor)
         {
             InitializeComponent();
             alamat = "server=localhost; database=universitas; username=root; password=;";
             koneksi = new MySqlConnection(alamat);
             checkBoxes = new List<System.Windows.Forms.CheckBox>();
             mahasiswaIds = new List<string>();
-            TableInformasiMHS.ColumnCount = 5; // 5 kolom: Nama, NIM, Poin, Pekerjaan, Status
+            TableInformasiMHS.ColumnCount = 4; // 5 kolom: Nama, NIM, Poin, Pekerjaan, Status
             TableInformasiMHS.RowCount = 1; // Mulai dengan 1 baris (untuk header)
             TableInformasiMHS.AutoSize = true;
             TableInformasiMHS.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -40,6 +41,7 @@ namespace PoinUnklabVispro
 
             TampilkanDataMahasiswa();
             AddHeaderToTable(); // Buat Headnya
+            this.idMonitor = idMonitor;
             // Jalankan
         }
 
@@ -48,8 +50,8 @@ namespace PoinUnklabVispro
             TableInformasiMHS.Controls.Add(new Label() { Text = "Nama", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, 0);
             TableInformasiMHS.Controls.Add(new Label() { Text = "NIM", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, 0);
             TableInformasiMHS.Controls.Add(new Label() { Text = "Poin", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, 0);
-            TableInformasiMHS.Controls.Add(new Label() { Text = "Pekerjaan", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
-            TableInformasiMHS.Controls.Add(new Label() { Text = "Status", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 4, 0);
+            //TableInformasiMHS.Controls.Add(new Label() { Text = "Pekerjaan", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
+            TableInformasiMHS.Controls.Add(new Label() { Text = "Status", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
         }
         private void TampilkanDataMahasiswa()
         {
@@ -61,7 +63,7 @@ namespace PoinUnklabVispro
                 koneksi.Open();
                 // Query untuk mengambil data mahasiswa
 
-                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin " +
+                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
                     "FROM tb_mahasiswa " +
                     "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna", koneksi);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -83,20 +85,27 @@ namespace PoinUnklabVispro
                     // Membuat label untuk Umur
                     Label labelUmur = new Label();
                     labelUmur.Text = reader["poin"].ToString();
-                    labelUmur.Location = new Point(260, posY);
+                    labelUmur.Location = new Point(173, posY);
                     labelUmur.AutoSize = true;
                     this.Controls.Add(labelUmur);
 
+                    // Membuat label untuk jenis pekerjaan
+                    Label jkerja = new Label();
+                    jkerja.Text = reader["pekerjaan"].ToString();
+                    jkerja.Location = new Point(253, posY);
+                    jkerja.AutoSize = true;
+                    this.Controls.Add(jkerja);
+
                     // Membuat Radio Button untuk setiap data mahasiswa
                     System.Windows.Forms.CheckBox radiobtn1 = new System.Windows.Forms.CheckBox();
-                    radiobtn1.Location = new Point(360, posY);
+                    radiobtn1.Location = new Point(425, posY);
                     radiobtn1.AutoSize = true;
                     this.Controls.Add(radiobtn1);
                     checkBoxes.Add(radiobtn1);
 
                     // Membuat Radio Button untuk setiap data mahasiswa
                     System.Windows.Forms.CheckBox radiobtn2 = new System.Windows.Forms.CheckBox();
-                    radiobtn2.Location = new Point(400, posY);
+                    radiobtn2.Location = new Point(480, posY);
                     radiobtn2.AutoSize = true;
                     this.Controls.Add(radiobtn2);
                     checkBoxes.Add(radiobtn2);
@@ -157,7 +166,7 @@ namespace PoinUnklabVispro
 
                     if (checkBoxes[i].Checked) // Jika checkbox 1 (Berhasil) tercentang
                     {
-                        string query = "UPDATE tb_poin SET status = @status, poin_sisa = poin_sisa - (SELECT jumlah_poin_req FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa LIMIT 1) WHERE id_mahasiswa = @id_mahasiswa";
+                        string query = "UPDATE tb_poin SET status = @status, poin_sisa = GREATEST(poin_sisa - (SELECT jumlah_poin_req FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa LIMIT 1), 0) WHERE id_mahasiswa = @id_mahasiswa";
                         MySqlCommand cmd = new MySqlCommand(query, koneksi);
                         cmd.Parameters.AddWithValue("@status", "Berhasil");
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
@@ -183,6 +192,24 @@ namespace PoinUnklabVispro
                 koneksi.Close(); // Pastikan untuk menutup koneksi pada error
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+            this.Hide();
+        }
+
+        private void TableInformasiMHS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void MonitorPages_Load(object sender, EventArgs e)
         {
             try
@@ -194,7 +221,7 @@ namespace PoinUnklabVispro
                     "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.jumlah_poin as jumlah_poin, pe.jenis_pekerjaan as pekerjaan, p.status as status " +
                     "FROM tb_mahasiswa as m " +
                     "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna " +
-                    "JOIN tb_kerja as pe ON pe.id_mahasiswa = m.id_pengguna",
+                    "JOIN tb_kerja as pe ON pe.id_mahasiswa = m.id_pengguna LIMIT 1",
                     koneksi);
 
                 // Execute command
@@ -207,8 +234,8 @@ namespace PoinUnklabVispro
                     TableInformasiMHS.Controls.Add(new Label() { Text = reader["nama_mahasiswa"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, row);
                     TableInformasiMHS.Controls.Add(new Label() { Text = reader["nim"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, row);
                     TableInformasiMHS.Controls.Add(new Label() { Text = reader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["pekerjaan"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 4, row);
+                    //TableInformasiMHS.Controls.Add(new Label() { Text = reader["pekerjaan"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
 
                     row++; // Pindah ke baris berikutnya
                     TableInformasiMHS.RowCount = row; // Tambah jumlah baris di TableLayoutPanel
