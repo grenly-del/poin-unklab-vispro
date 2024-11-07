@@ -172,7 +172,7 @@ namespace PoinUnklabVispro
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
                         cmd.ExecuteNonQuery();
                     }
-                    else if (checkBoxes[i + 1].Checked) // Jika checkbox 2 (Gagal) tercentang
+                    else if (checkBoxes[i + 1].Checked) 
                     {
                         string query = "UPDATE tb_poin SET status = @status WHERE id_mahasiswa = @id_mahasiswa";
                         MySqlCommand cmd = new MySqlCommand(query, koneksi);
@@ -189,7 +189,7 @@ namespace PoinUnklabVispro
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                koneksi.Close(); // Pastikan untuk menutup koneksi pada error
+                koneksi.Close(); 
             }
         }
 
@@ -216,33 +216,47 @@ namespace PoinUnklabVispro
             {
                 koneksi.Open();
 
-                // Perbaikan: Gunakan MySqlCommand bukan SqlCommand
-                MySqlCommand command = new MySqlCommand(
+               
+                MySqlCommand monitorCommand = new MySqlCommand(
+                    "SELECT nama_monitor FROM tb_monitor WHERE id_monitor = @idMonitor", koneksi);
+                monitorCommand.Parameters.AddWithValue("@idMonitor", idMonitor); 
+                MySqlDataReader monitorReader = monitorCommand.ExecuteReader();
+
+                if (monitorReader.Read())
+                {
+                    lblnamaMonitor.Text = monitorReader["nama_monitor"].ToString();
+                }
+
+                monitorReader.Close();
+
+                
+                MySqlCommand mahasiswaCommand = new MySqlCommand(
                     "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.jumlah_poin as jumlah_poin, pe.jenis_pekerjaan as pekerjaan, p.status as status " +
                     "FROM tb_mahasiswa as m " +
                     "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna " +
                     "JOIN tb_kerja as pe ON pe.id_mahasiswa = m.id_pengguna LIMIT 1",
                     koneksi);
 
-                // Execute command
-                MySqlDataReader reader = command.ExecuteReader();
+                
+                MySqlDataReader mahasiswaReader = mahasiswaCommand.ExecuteReader();
 
-                int row = 1; // Baris pertama (0) sudah diisi header, mulai dari baris ke-1
-                while (reader.Read())
+                int row = 1;
+                while (mahasiswaReader.Read())
                 {
-                    // Menambahkan data mahasiswa
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["nama_mahasiswa"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["nim"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
-                    //TableInformasiMHS.Controls.Add(new Label() { Text = reader["pekerjaan"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = reader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
+                    
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nama_mahasiswa"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nim"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
+                    //TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["pekerjaan"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
 
-                    row++; // Pindah ke baris berikutnya
-                    TableInformasiMHS.RowCount = row; // Tambah jumlah baris di TableLayoutPanel
+                    row++; 
+                    TableInformasiMHS.RowCount = row; 
                 }
 
-                reader.Close(); // Jangan lupa tutup reader setelah selesai
-                koneksi.Close(); // Tutup koneksi
+                mahasiswaReader.Close(); 
+                koneksi.Close(); 
+
             }
             catch (Exception ex)
             {
@@ -250,6 +264,7 @@ namespace PoinUnklabVispro
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
 
 
