@@ -11,8 +11,10 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
+
 namespace PoinUnklabVispro
 {
+
     public partial class MahasiswaPage : Form
     {
         private MySqlConnection koneksi;
@@ -21,6 +23,10 @@ namespace PoinUnklabVispro
         private DataSet ds = new DataSet();
         private string alamat, query;
         private string parameter;
+        private string pekerjaanDipilih;
+        private int poinPerJam;
+        private int idKerja;
+
         public MahasiswaPage(string id_pengguna)
         {
             alamat = "server=localhost; database=universitas; username=root; password=;";
@@ -107,12 +113,11 @@ namespace PoinUnklabVispro
                     int poinDitebus = jumlahPoin - poinSisa;
                     int poinSaatIni = poinSisa;
                     
-                    // tampilan poin dibagian bawah page
+                    
                     lblValTotalPoin.Text = jumlahPoin.ToString();
                     lblValPoinDitebus.Text = poinDitebus.ToString();
                     lblValPoinSaatIni.Text = poinSaatIni.ToString();
 
-                    // tampian poin dibagian atas page
                     lblValTotal.Text = poinSaatIni.ToString();
                     lblValDikerjakan.Text = poinDitebus.ToString();
                 }
@@ -146,11 +151,91 @@ namespace PoinUnklabVispro
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (radioButton1.Checked)
+            {
+                pekerjaanDipilih = "Menggali Lubang";
+                poinPerJam = 5;
+                idKerja = 1;
+            }
         }
 
         private void btnKirimPermintaan_Click(object sender, EventArgs e)
         {
+            
+            if (string.IsNullOrEmpty(pekerjaanDipilih) || string.IsNullOrEmpty(txtJamKerja.Text))
+            {
+                MessageBox.Show("Pilih pekerjaan dan masukkan jam kerja!");
+                return;
+            }
+
+            int jamKerja;
+            if (!int.TryParse(txtJamKerja.Text, out jamKerja) || jamKerja <= 0)
+            {
+                MessageBox.Show("Masukkan jam kerja yang valid!");
+                return;
+            }
+
+            int poinDikerjakan = poinPerJam * jamKerja;
+
+            
+            try
+            {
+                koneksi.Open();
+                query = "INSERT INTO tb_kerja (jenis_pekerjaan, id_mahasiswa, jumlah_poin_req) VALUES (@jenis_pekerjaan, @id_mahasiswa, @jumlah_poin_req)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, koneksi))
+                {
+                    cmd.Parameters.AddWithValue("@jenis_pekerjaan", pekerjaanDipilih); 
+                    cmd.Parameters.AddWithValue("@id_mahasiswa", parameter); 
+                    cmd.Parameters.AddWithValue("@jumlah_poin_req", poinDikerjakan); 
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                koneksi.Close();
+
+                MessageBox.Show("Permintaan berhasil dikirim!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal mengirim permintaan: " + ex.Message);
+            }
+            finally
+            {
+                koneksi.Close();
+            }
+        }
+
+
+
+        private void btnPekerjaan2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnPekerjaan2.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Lingkungan";
+                poinPerJam = 4;
+                idKerja = 2;
+            }
+        }
+
+        private void btnPekerjaan3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnPekerjaan3.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Toilet";
+                poinPerJam = 3;
+                idKerja = 3;
+            }
+        }
+
+        private void btnPekerjaan4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnPekerjaan4.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Parkiran";
+                poinPerJam = 2;
+                idKerja = 4;
+            }
 
         }
 

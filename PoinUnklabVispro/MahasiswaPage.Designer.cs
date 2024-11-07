@@ -81,7 +81,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnKirimPermintaan = new System.Windows.Forms.Button();
-            this.btnPekerjaan1 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnPekerjaan2 = new System.Windows.Forms.RadioButton();
             this.btnPekerjaan3 = new System.Windows.Forms.RadioButton();
             this.btnPekerjaan4 = new System.Windows.Forms.RadioButton();
@@ -109,14 +109,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1117, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1180, 26);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 28);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -126,7 +126,7 @@
             this.mahasiswaToolStripMenuItem,
             this.monitorToolStripMenuItem});
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(77, 28);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.registerToolStripMenuItem.Text = "Register";
             // 
             // mahasiswaToolStripMenuItem
@@ -146,7 +146,7 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(60, 28);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -630,18 +630,18 @@
             this.btnKirimPermintaan.UseVisualStyleBackColor = false;
             this.btnKirimPermintaan.Click += new System.EventHandler(this.btnKirimPermintaan_Click);
             // 
-            // btnPekerjaan1
+            // radioButton1
             // 
-            this.btnPekerjaan1.AutoSize = true;
-            this.btnPekerjaan1.Location = new System.Drawing.Point(667, 368);
-            this.btnPekerjaan1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPekerjaan1.Name = "btnPekerjaan1";
-            this.btnPekerjaan1.Size = new System.Drawing.Size(35, 20);
-            this.btnPekerjaan1.TabIndex = 75;
-            this.btnPekerjaan1.TabStop = true;
-            this.btnPekerjaan1.Text = "1";
-            this.btnPekerjaan1.UseVisualStyleBackColor = true;
-            this.btnPekerjaan1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(667, 368);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(35, 20);
+            this.radioButton1.TabIndex = 75;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnPekerjaan2
             // 
@@ -654,6 +654,7 @@
             this.btnPekerjaan2.TabStop = true;
             this.btnPekerjaan2.Text = "2";
             this.btnPekerjaan2.UseVisualStyleBackColor = true;
+            this.btnPekerjaan2.CheckedChanged += new System.EventHandler(this.btnPekerjaan2_CheckedChanged);
             // 
             // btnPekerjaan3
             // 
@@ -666,6 +667,7 @@
             this.btnPekerjaan3.TabStop = true;
             this.btnPekerjaan3.Text = "3";
             this.btnPekerjaan3.UseVisualStyleBackColor = true;
+            this.btnPekerjaan3.CheckedChanged += new System.EventHandler(this.btnPekerjaan3_CheckedChanged);
             // 
             // btnPekerjaan4
             // 
@@ -678,6 +680,7 @@
             this.btnPekerjaan4.TabStop = true;
             this.btnPekerjaan4.Text = "4";
             this.btnPekerjaan4.UseVisualStyleBackColor = true;
+            this.btnPekerjaan4.CheckedChanged += new System.EventHandler(this.btnPekerjaan4_CheckedChanged);
             // 
             // label5
             // 
@@ -694,12 +697,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 671);
+            this.ClientSize = new System.Drawing.Size(1180, 671);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnPekerjaan4);
             this.Controls.Add(this.btnPekerjaan3);
             this.Controls.Add(this.btnPekerjaan2);
-            this.Controls.Add(this.btnPekerjaan1);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btnKirimPermintaan);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox9);
@@ -822,7 +825,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnKirimPermintaan;
-        private System.Windows.Forms.RadioButton btnPekerjaan1;
+        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton btnPekerjaan2;
         private System.Windows.Forms.RadioButton btnPekerjaan3;
         private System.Windows.Forms.RadioButton btnPekerjaan4;
