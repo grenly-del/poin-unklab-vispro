@@ -69,6 +69,7 @@
             this.btnLogin.TabIndex = 57;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPasswordMhs
             // 
@@ -156,13 +157,13 @@
             // mahasiswaToolStripMenuItem
             // 
             this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem
             // 
             this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem.Text = "Monitor";
             // 
             // loginToolStripMenuItem
@@ -177,13 +178,13 @@
             // mahasiswaToolStripMenuItem1
             // 
             this.mahasiswaToolStripMenuItem1.Name = "mahasiswaToolStripMenuItem1";
-            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.mahasiswaToolStripMenuItem1.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem1
             // 
             this.monitorToolStripMenuItem1.Name = "monitorToolStripMenuItem1";
-            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.monitorToolStripMenuItem1.Text = "Monitor";
             // 
             // pictureBox1

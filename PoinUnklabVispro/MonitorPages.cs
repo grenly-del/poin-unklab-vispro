@@ -61,7 +61,7 @@ namespace PoinUnklabVispro
                 koneksi.Open();
                 // Query untuk mengambil data mahasiswa
 
-                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.poin_ditebus AS poin " +
+                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin " +
                     "FROM tb_mahasiswa " +
                     "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna", koneksi);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -157,7 +157,7 @@ namespace PoinUnklabVispro
 
                     if (checkBoxes[i].Checked) // Jika checkbox 1 (Berhasil) tercentang
                     {
-                        string query = "UPDATE tb_poin SET status = @status WHERE id_mahasiswa = @id_mahasiswa";
+                        string query = "UPDATE tb_poin SET status = @status, poin_sisa = poin_sisa - (SELECT jumlah_poin_req FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa LIMIT 1) WHERE id_mahasiswa = @id_mahasiswa";
                         MySqlCommand cmd = new MySqlCommand(query, koneksi);
                         cmd.Parameters.AddWithValue("@status", "Berhasil");
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
@@ -167,7 +167,7 @@ namespace PoinUnklabVispro
                     {
                         string query = "UPDATE tb_poin SET status = @status WHERE id_mahasiswa = @id_mahasiswa";
                         MySqlCommand cmd = new MySqlCommand(query, koneksi);
-                        cmd.Parameters.AddWithValue("@status", "Gagal");
+                        cmd.Parameters.AddWithValue("@status", "Ditolak");
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
                         cmd.ExecuteNonQuery();
 

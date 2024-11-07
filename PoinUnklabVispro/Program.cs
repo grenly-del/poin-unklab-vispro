@@ -17,7 +17,7 @@ namespace PoinUnklabVispro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HalamanUtama());
+            Application.Run(new MonitorPages());
         }
     }
 }
