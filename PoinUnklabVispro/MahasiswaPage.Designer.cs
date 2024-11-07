@@ -202,6 +202,7 @@
             this.lblStatusApproval.Size = new System.Drawing.Size(115, 17);
             this.lblStatusApproval.TabIndex = 28;
             this.lblStatusApproval.Text = "(status approval)";
+            this.lblStatusApproval.Click += new System.EventHandler(this.lblStatusApproval_Click);
             // 
             // lblNamaMahasiswa
             // 

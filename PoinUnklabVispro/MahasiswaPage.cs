@@ -62,7 +62,7 @@ namespace PoinUnklabVispro
             halamanUtama.Show();
             this.Hide();
         }
-
+        
         private void lblNamaMahasiswa_Click(object sender, EventArgs e)
         {
 
@@ -236,6 +236,11 @@ namespace PoinUnklabVispro
                 poinPerJam = 2;
                 idKerja = 4;
             }
+
+        }
+
+        private void lblStatusApproval_Click(object sender, EventArgs e)
+        {
 
         }
 

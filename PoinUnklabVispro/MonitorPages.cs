@@ -23,7 +23,8 @@ namespace PoinUnklabVispro
         private MySqlCommand perintah;
         private DataSet ds = new DataSet();
         private string alamat, query;
-        public MonitorPages()
+        private string idMonitor;
+        public MonitorPages(string idMonitor)
         {
             InitializeComponent();
             alamat = "server=localhost; database=universitas; username=root; password=;";
@@ -40,6 +41,7 @@ namespace PoinUnklabVispro
 
             TampilkanDataMahasiswa();
             AddHeaderToTable(); // Buat Headnya
+            this.idMonitor = idMonitor;
             // Jalankan
         }
 
@@ -61,7 +63,7 @@ namespace PoinUnklabVispro
                 koneksi.Open();
                 // Query untuk mengambil data mahasiswa
 
-                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.poin_ditebus AS poin " +
+                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin " +
                     "FROM tb_mahasiswa " +
                     "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna", koneksi);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -183,6 +185,19 @@ namespace PoinUnklabVispro
                 koneksi.Close(); // Pastikan untuk menutup koneksi pada error
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+            this.Hide();
+        }
+
         private void MonitorPages_Load(object sender, EventArgs e)
         {
             try
