@@ -43,6 +43,13 @@ namespace PoinUnklabVispro
             this.Hide();
         }
 
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+            this.Hide();
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
@@ -54,7 +61,7 @@ namespace PoinUnklabVispro
 
                     // Menghasilkan angka random dari 4001 hingga 9999 (batas atasnya bisa kamu sesuaikan)
                     int id_pengguna = rnd.Next(4001, 10000);
-                    query = string.Format("insert into tb_monitor (id_pengguna, nama_mahasiswa, password, no_regis, nim) values ('{0}','{1}','{2}','{3}','{4}');", id_pengguna, txtNama.Text, txtPassword.Text, txtNoRegis.Text, txtNIM.Text);
+                    query = string.Format("insert into tb_monitor (id_monitor, nama_monitor, password, no_regis, nim) values ('{0}','{1}','{2}','{3}','{4}');", id_pengguna, txtNama.Text, txtPassword.Text, txtNoRegis.Text, txtNIM.Text);
 
 
                     koneksi.Open();
@@ -64,9 +71,9 @@ namespace PoinUnklabVispro
                     koneksi.Close();
                     if (res == 1)
                     {
-                        MessageBox.Show("Insert Data Suksess ...");
-                        LoginPage frmlgn = new LoginPage();
-                        frmlgn.Show();
+                        MessageBox.Show("Monitor berhasil ditambahkan ...");
+                        HalamanUtama halamanUtama = new HalamanUtama();
+                        halamanUtama.Show();
                         this.Hide();
                     }
                     else

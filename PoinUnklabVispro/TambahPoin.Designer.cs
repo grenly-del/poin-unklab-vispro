@@ -47,7 +47,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblPoin = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblnamaMonitor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,7 +81,6 @@
             this.txtNoRegis.Name = "txtNoRegis";
             this.txtNoRegis.Size = new System.Drawing.Size(100, 21);
             this.txtNoRegis.TabIndex = 2;
-            this.txtNoRegis.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnCari
             // 
@@ -175,10 +178,11 @@
             // 
             this.btnPoin.Location = new System.Drawing.Point(542, 139);
             this.btnPoin.Name = "btnPoin";
-            this.btnPoin.Size = new System.Drawing.Size(75, 23);
+            this.btnPoin.Size = new System.Drawing.Size(91, 23);
             this.btnPoin.TabIndex = 15;
-            this.btnPoin.Text = "Cari";
+            this.btnPoin.Text = "Tambah Poin";
             this.btnPoin.UseVisualStyleBackColor = true;
+            this.btnPoin.Click += new System.EventHandler(this.btnPoin_Click_1);
             // 
             // txtPoin
             // 
@@ -215,11 +219,45 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Poin";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(312, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(194, 20);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tambahkan Poin Siswa";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(574, 24);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(42, 37);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 20;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // lblnamaMonitor
+            // 
+            this.lblnamaMonitor.AutoSize = true;
+            this.lblnamaMonitor.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnamaMonitor.Location = new System.Drawing.Point(637, 24);
+            this.lblnamaMonitor.Name = "lblnamaMonitor";
+            this.lblnamaMonitor.Size = new System.Drawing.Size(22, 22);
+            this.lblnamaMonitor.TabIndex = 19;
+            this.lblnamaMonitor.Text = "...";
+            // 
             // TambahPoin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.lblnamaMonitor);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lblPoin);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnPoin);
@@ -242,6 +280,7 @@
             this.Text = "TambahPoin";
             this.Load += new System.EventHandler(this.TambahPoin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,5 +306,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblPoin;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lblnamaMonitor;
     }
 }

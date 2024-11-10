@@ -47,90 +47,84 @@ namespace PoinUnklabVispro
             this.Hide();
         }
 
+        private void RegisMahasiswa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+            this.Hide();
+        }
+
         private void btnRegis_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtNama.Text != "" && txtPassword.Text != "" && txtNoRegis.Text != "" && txtNIM.Text != "" && txtPoin.Text != "" && txtPekerjaan.Text != "")
+                if (txtNama.Text != "" && txtPassword.Text != "" && txtNoRegis.Text != "" && txtNIM.Text != "")
                 {
                     // Membuat objek Random
                     Random rnd = new Random();
 
-                    // Menghasilkan angka random dari 4001 hingga 9999 (batas atasnya bisa kamu sesuaikan)
+                    // Menghasilkan angka random dari 4001 hingga 9999
                     int id_pengguna = rnd.Next(4001, 10000);
-                    //query = string.Format("insert into tb_mahasiswa (id_pengguna, nama_mahasiswa, fakultas, prodi, password, no_regis, nim) values ('{0}','{1}','{2}','{3}','{4}', '{5}', '{6}');", id_pengguna, txtNama.Text, cbFakultas.SelectedItem.ToString(), cbJurusan.SelectedItem.ToString(), txtPassword.Text, txtNoRegis.Text, txtNIM.Text);
-                    // Menyiapkan koneksi dan membuka koneksi ke database
+
+                    // Membuka koneksi ke database
                     koneksi.Open();
 
-                    // Memulai transaksi
-                    MySqlTransaction transaction = koneksi.BeginTransaction();
+                    // Query untuk insert ke tabel tb_mahasiswa
+                    string query1 = "INSERT INTO tb_mahasiswa (id_pengguna, nama_mahasiswa, fakultas, prodi, password, no_regis, nim) " +
+                                    "VALUES (@id_pengguna, @nama_mahasiswa, @fakultas, @prodi, @password, @no_regis, @nim)";
+                    MySqlCommand perintah1 = new MySqlCommand(query1, koneksi);
+                    perintah1.Parameters.AddWithValue("@id_pengguna", id_pengguna);
+                    perintah1.Parameters.AddWithValue("@nama_mahasiswa", txtNama.Text);
+                    perintah1.Parameters.AddWithValue("@fakultas", cbFakultas.SelectedItem.ToString());
+                    perintah1.Parameters.AddWithValue("@prodi", cbJurusan.SelectedItem.ToString());
+                    perintah1.Parameters.AddWithValue("@password", txtPassword.Text);
+                    perintah1.Parameters.AddWithValue("@no_regis", txtNoRegis.Text);
+                    perintah1.Parameters.AddWithValue("@nim", txtNIM.Text);
 
-                    // Menyiapkan command untuk query pertama (insert ke tabel tb_mahasiswa)
-                    string query1 = string.Format("insert into tb_mahasiswa " +
-                        "(id_pengguna, nama_mahasiswa, fakultas, prodi, password, no_regis, nim) " +
-                        "values ('{0}','{1}','{2}','{3}','{4}', '{5}', '{6}');", id_pengguna, txtNama.Text, cbFakultas.SelectedItem.ToString(), cbJurusan.SelectedItem.ToString(), txtPassword.Text, txtNoRegis.Text, txtNIM.Text);
-
-                    MySqlCommand perintah1 = new MySqlCommand(query1, koneksi, transaction);
-
-                    // Menyiapkan command untuk query kedua (contoh: insert ke tabel tb_poin)
-                    string query2 = string.Format("INSERT INTO tb_poin (id_mahasiswa, jumlah_poin, poin_sisa, status)" +
-                                                  "VALUES ('{0}', '{1}', '{2}', '{3}');",
-                                                  id_pengguna, txtPoin.Text, txtPoin.Text, "belum");
-
-                    MySqlCommand perintah2 = new MySqlCommand(query2, koneksi, transaction);
-
-                    // Menyiapkan command untuk query ketiga (contoh: insert ke tabel tb_kerja)
-                    string query3 = string.Format("INSERT INTO tb_kerja (`jenis_pekerjaan`, `id_mahasiswa`) values ('{0}', '{1}');", txtPekerjaan.Text, id_pengguna);
-
-
-
-                    MySqlCommand perintah3 = new MySqlCommand(query3, koneksi, transaction);
+                    // Query untuk insert ke tabel tb_poin
+                    string query2 = "INSERT INTO tb_poin (id_mahasiswa, jumlah_poin, poin_sisa, status) " +
+                                    "VALUES (@id_pengguna, @jumlah_poin, @poin_sisa, @status)";
+                    MySqlCommand perintah2 = new MySqlCommand(query2, koneksi);
+                    perintah2.Parameters.AddWithValue("@id_pengguna", id_pengguna);
+                    perintah2.Parameters.AddWithValue("@jumlah_poin", 0);
+                    perintah2.Parameters.AddWithValue("@poin_sisa", 0);
+                    perintah2.Parameters.AddWithValue("@status", "belum");
 
                     // Menjalankan semua query
                     perintah1.ExecuteNonQuery();
                     perintah2.ExecuteNonQuery();
-                    perintah3.ExecuteNonQuery();
-
-                    // Jika semua query berhasil, lakukan commit transaksi
-                    transaction.Commit();
-
-                    // Tutup koneksi
-                    koneksi.Close();
 
                     // Menampilkan pesan sukses
-                    MessageBox.Show("Insert Data Suksess ...");
+                    MessageBox.Show("Data berhasil di tambahkan");
 
                     // Beralih ke halaman login
-                    LoginPage frmlgn = new LoginPage();
-                    frmlgn.Show();
+                    HalamanUtama mainfrm = new HalamanUtama();
+                    mainfrm.Show();
                     this.Hide();
-
-                    //koneksi.Open();
-                    //perintah = new MySqlCommand(query, koneksi);
-                    //adapter = new MySqlDataAdapter(perintah);
-                    //int res = perintah.ExecuteNonQuery();
-                    //koneksi.Close();
-                    //if (res == 1)
-                    //{
-                    //    MessageBox.Show("Insert Data Suksess ...");
-                    //    LoginPage frmlgn = new LoginPage();
-                    //    frmlgn.Show();
-                    //    this.Hide();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Gagal inser Data . . . ");
-                    //}
                 }
                 else
                 {
-                    MessageBox.Show("Data Tidak lengkap !!");
+                    MessageBox.Show("Data tidak lengkap!");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
+            finally
+            {
+                // Pastikan koneksi tertutup
+                if (koneksi.State == ConnectionState.Open)
+                {
+                    koneksi.Close();
+                }
+            }
+
         }
     }
 }

@@ -39,10 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mahasiswaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -134,9 +130,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.registerToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.homeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(926, 24);
@@ -148,35 +142,7 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // registerToolStripMenuItem
-            // 
-            this.registerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mahasiswaToolStripMenuItem,
-            this.monitorToolStripMenuItem});
-            this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.registerToolStripMenuItem.Text = "Register";
-            // 
-            // mahasiswaToolStripMenuItem
-            // 
-            this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
-            this.mahasiswaToolStripMenuItem.Click += new System.EventHandler(this.mahasiswaToolStripMenuItem_Click);
-            // 
-            // monitorToolStripMenuItem
-            // 
-            this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.monitorToolStripMenuItem.Text = "Monitor";
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.loginToolStripMenuItem.Text = "Login";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // label11
             // 
@@ -272,10 +238,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mahasiswaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem monitorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label12;

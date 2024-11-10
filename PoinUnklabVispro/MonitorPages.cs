@@ -31,7 +31,7 @@ namespace PoinUnklabVispro
             koneksi = new MySqlConnection(alamat);
             checkBoxes = new List<System.Windows.Forms.CheckBox>();
             mahasiswaIds = new List<string>();
-            TableInformasiMHS.ColumnCount = 4; // 5 kolom: Nama, NIM, Poin, Pekerjaan, Status
+            TableInformasiMHS.ColumnCount = 5; // 5 kolom: Nama, NIM, Poin, Pekerjaan, Status
             TableInformasiMHS.RowCount = 1; // Mulai dengan 1 baris (untuk header)
             TableInformasiMHS.AutoSize = true;
             TableInformasiMHS.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -49,9 +49,9 @@ namespace PoinUnklabVispro
         {
             TableInformasiMHS.Controls.Add(new Label() { Text = "Nama", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, 0);
             TableInformasiMHS.Controls.Add(new Label() { Text = "NIM", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, 0);
-            TableInformasiMHS.Controls.Add(new Label() { Text = "Poin", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, 0);
-            //TableInformasiMHS.Controls.Add(new Label() { Text = "Pekerjaan", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
-            TableInformasiMHS.Controls.Add(new Label() { Text = "Status", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
+            TableInformasiMHS.Controls.Add(new Label() { Text = "No Regis", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, 0);
+            TableInformasiMHS.Controls.Add(new Label() { Text = "Poin", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, 0);
+            TableInformasiMHS.Controls.Add(new Label() { Text = "Status", TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 4, 0);
         }
         private void TampilkanDataMahasiswa()
         {
@@ -222,7 +222,7 @@ namespace PoinUnklabVispro
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            TambahPoin addPoinFrm = new TambahPoin();
+            TambahPoin addPoinFrm = new TambahPoin(idMonitor);
             addPoinFrm.Show();
             this.Hide();
         }
@@ -248,7 +248,7 @@ namespace PoinUnklabVispro
 
                 
                 MySqlCommand mahasiswaCommand = new MySqlCommand(
-                    "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.poin_sisa as jumlah_poin, p.status as status " +
+                    "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.poin_sisa as jumlah_poin, p.status as status, m.no_regis as no_regis " +
                     "FROM tb_mahasiswa as m " +
                     "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna ",
                     koneksi);
@@ -262,9 +262,9 @@ namespace PoinUnklabVispro
                     
                     TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nama_mahasiswa"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, row);
                     TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nim"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
-                    //TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["pekerjaan"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
-                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["no_regis"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
+                    TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 4, row);
 
                     row++; 
                     TableInformasiMHS.RowCount = row; 

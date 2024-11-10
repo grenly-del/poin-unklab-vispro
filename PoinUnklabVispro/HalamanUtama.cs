@@ -35,5 +35,19 @@ namespace PoinUnklabVispro
             frmlgnmonitor.Show();
             this.Hide();
         }
+
+        private void monitorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegisMonitor regisMonitor = new RegisMonitor();
+            regisMonitor.Show();
+            this.Hide();
+        }
+
+        private void mahasiswaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegisMahasiswa regisMahasiswa = new RegisMahasiswa();
+            regisMahasiswa.Show();
+            this.Hide();
+        }
     }
 }

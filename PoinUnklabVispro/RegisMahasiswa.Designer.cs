@@ -41,23 +41,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnRegis = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mahasiswaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNoRegis = new System.Windows.Forms.TextBox();
             this.txtNIM = new System.Windows.Forms.TextBox();
-            this.txtPoin = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -191,53 +184,6 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Mahasiswa";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.registerToolStripMenuItem,
-            this.loginToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(934, 24);
-            this.menuStrip1.TabIndex = 19;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // registerToolStripMenuItem
-            // 
-            this.registerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mahasiswaToolStripMenuItem,
-            this.monitorToolStripMenuItem});
-            this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.registerToolStripMenuItem.Text = "Register";
-            // 
-            // mahasiswaToolStripMenuItem
-            // 
-            this.mahasiswaToolStripMenuItem.Name = "mahasiswaToolStripMenuItem";
-            this.mahasiswaToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.mahasiswaToolStripMenuItem.Text = "Mahasiswa";
-            // 
-            // monitorToolStripMenuItem
-            // 
-            this.monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
-            this.monitorToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.monitorToolStripMenuItem.Text = "Monitor";
-            this.monitorToolStripMenuItem.Click += new System.EventHandler(this.monitorToolStripMenuItem_Click);
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.loginToolStripMenuItem.Text = "Login";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
-            // 
             // txtNoRegis
             // 
             this.txtNoRegis.Location = new System.Drawing.Point(609, 186);
@@ -251,32 +197,6 @@
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(227, 20);
             this.txtNIM.TabIndex = 21;
-            // 
-            // txtPoin
-            // 
-            this.txtPoin.Location = new System.Drawing.Point(609, 311);
-            this.txtPoin.Name = "txtPoin";
-            this.txtPoin.Size = new System.Drawing.Size(227, 20);
-            this.txtPoin.TabIndex = 27;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(688, 290);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 15);
-            this.label13.TabIndex = 26;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(605, 288);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 16);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Total Poin";
             // 
             // pictureBox1
             // 
@@ -316,14 +236,31 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Password";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(934, 24);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // RegisMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 508);
-            this.Controls.Add(this.txtPoin);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.txtNIM);
             this.Controls.Add(this.txtNoRegis);
             this.Controls.Add(this.label10);
@@ -342,13 +279,12 @@
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "RegisMahasiswa";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.RegisMahasiswa_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,20 +305,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRegis;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mahasiswaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem monitorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.TextBox txtNoRegis;
         private System.Windows.Forms.TextBox txtNIM;
-        private System.Windows.Forms.TextBox txtPoin;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
     }
 }
 

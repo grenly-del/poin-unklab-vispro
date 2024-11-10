@@ -151,10 +151,26 @@ namespace PoinUnklabVispro
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            if (btnPerkerjaan1.Checked)
             {
                 pekerjaanDipilih = "Menggali Lubang";
                 poinPerJam = 5;
+                idKerja = 1;
+            }else if (btnPekerjaan2.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Lingkungan";
+                poinPerJam = 4;
+                idKerja = 1;
+            }else if (btnPekerjaan3.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Toilet";
+                poinPerJam = 3;
+                idKerja = 1;
+            }
+            else if (btnPekerjaan4.Checked)
+            {
+                pekerjaanDipilih = "Membersihkan Parkiran";
+                poinPerJam = 2;
                 idKerja = 1;
             }
         }
@@ -177,22 +193,65 @@ namespace PoinUnklabVispro
 
             int poinDikerjakan = poinPerJam * jamKerja;
 
-            
+
             try
             {
                 koneksi.Open();
-                query = "INSERT INTO tb_kerja (jenis_pekerjaan, id_mahasiswa, jumlah_poin_req) VALUES (@jenis_pekerjaan, @id_mahasiswa, @jumlah_poin_req)";
 
+                int id_mhs = Convert.ToInt32(parameter);
+                MessageBox.Show("Type " + id_mhs.GetType());
+
+                // Cek apakah id_mahasiswa sudah ada di tabel tb_kerja
+                string checkQuery = "SELECT COUNT(*) FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
+                using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, koneksi))
+                {
+                    checkCmd.Parameters.AddWithValue("@id_mahasiswa", id_mhs);
+                    int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        // Jika id_mahasiswa sudah ada, tampilkan pesan dan batalkan proses insert
+                        MessageBox.Show("Gagal melakukan request: Data sudah ada.");
+                        return;
+                    }
+                }
+
+                // Jika id_mahasiswa belum ada, lakukan proses insert
+                string query = "INSERT INTO tb_kerja (jenis_pekerjaan, id_mahasiswa, jumlah_poin_req) VALUES (@jenis_pekerjaan, @id_mahasiswa, @jumlah_poin_req)";
                 using (MySqlCommand cmd = new MySqlCommand(query, koneksi))
                 {
-                    cmd.Parameters.AddWithValue("@jenis_pekerjaan", pekerjaanDipilih); 
-                    cmd.Parameters.AddWithValue("@id_mahasiswa", parameter); 
-                    cmd.Parameters.AddWithValue("@jumlah_poin_req", poinDikerjakan); 
-
+                    cmd.Parameters.AddWithValue("@jenis_pekerjaan", pekerjaanDipilih);
+                    cmd.Parameters.AddWithValue("@id_mahasiswa", id_mhs);
+                    cmd.Parameters.AddWithValue("@jumlah_poin_req", poinDikerjakan);
                     cmd.ExecuteNonQuery();
                 }
 
-                koneksi.Close();
+                // Ubah status di tb_poin
+                string queryUpdateStatus = "UPDATE tb_poin SET status = 'Menunggu' WHERE id_mahasiswa = @id_mahasiswa";
+                using (MySqlCommand cmdUpdateStatus = new MySqlCommand(queryUpdateStatus, koneksi))
+                {
+                    cmdUpdateStatus.Parameters.AddWithValue("@id_mahasiswa", id_mhs);
+                    cmdUpdateStatus.ExecuteNonQuery();
+                }
+
+                // Ambil status terbaru di tb_poin
+                string queryStatus = "SELECT status FROM tb_poin WHERE id_mahasiswa = @id_mahasiswa";
+                using (MySqlCommand cmdStatus = new MySqlCommand(queryStatus, koneksi))
+                {
+                    cmdStatus.Parameters.AddWithValue("@id_mahasiswa", id_mhs);
+                    object statusResult = cmdStatus.ExecuteScalar();
+
+                    // Menampilkan status pada lblApproval jika status ditemukan
+                    if (statusResult != null)
+                    {
+                        string status = statusResult.ToString();
+                        lblStatusApproval.Text = status;
+                    }
+                    else
+                    {
+                        lblStatusApproval.Text = "Status Tidak Ditemukan";
+                    }
+                }
 
                 MessageBox.Show("Permintaan berhasil dikirim!");
             }
@@ -202,7 +261,10 @@ namespace PoinUnklabVispro
             }
             finally
             {
-                koneksi.Close();
+                if (koneksi.State == ConnectionState.Open)
+                {
+                    koneksi.Close();
+                }
             }
         }
 
@@ -273,9 +335,31 @@ namespace PoinUnklabVispro
                         lblValJurusan.Text = kolom["prodi"].ToString();
                         lblValFakultas.Text = kolom["fakultas"].ToString();
                         lblNamaMahasiswa.Text = kolom["nama_mahasiswa"].ToString();
+                        
 
                         // Memuat data poin mahasiswa
                         LoadPoinMahasiswa(parameter);
+
+                        // Mengambil status dari tabel tb_poin
+                        string queryStatus = "SELECT status FROM tb_poin WHERE id_mahasiswa = @id_mahasiswa";
+                        using (MySqlCommand cmdStatus = new MySqlCommand(queryStatus, koneksi))
+                        {
+                            cmdStatus.Parameters.AddWithValue("@id_mahasiswa", parameter);
+                            koneksi.Open();
+                            object statusResult = cmdStatus.ExecuteScalar();
+                            koneksi.Close();
+
+                            // Menampilkan status pada lblApproval jika status ditemukan
+                            if (statusResult != null)
+                            {
+                                string status = statusResult.ToString();
+                                lblStatusApproval.Text = status;
+                            }
+                            else
+                            {
+                                lblStatusApproval.Text = "Status Tidak Ditemukan";
+                            }
+                        }
                     }
                     else
                     {

@@ -58,9 +58,9 @@
             this.lblnamaMonitor.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnamaMonitor.Location = new System.Drawing.Point(703, 12);
             this.lblnamaMonitor.Name = "lblnamaMonitor";
-            this.lblnamaMonitor.Size = new System.Drawing.Size(142, 22);
+            this.lblnamaMonitor.Size = new System.Drawing.Size(22, 22);
             this.lblnamaMonitor.TabIndex = 2;
-            this.lblnamaMonitor.Text = "Grantly Sorongan";
+            this.lblnamaMonitor.Text = "...";
             this.lblnamaMonitor.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -107,9 +107,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(173, 409);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Jam Ditebus";
+            this.label5.Text = "Poin Ditebus";
             // 
             // label6
             // 
