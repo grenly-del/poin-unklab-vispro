@@ -220,6 +220,13 @@ namespace PoinUnklabVispro
 
         }
 
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            TambahPoin addPoinFrm = new TambahPoin();
+            addPoinFrm.Show();
+            this.Hide();
+        }
+
         private void MonitorPages_Load(object sender, EventArgs e)
         {
             try

@@ -128,3 +128,4 @@ C:\Unklabb\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.csproj
 C:\Unklabb\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnkl.8A5539EE.Up2Date
 C:\Unklabb\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.exe
 C:\Unklabb\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.pdb
+C:\Users\Lenovo\Desktop\Grantly\poin-unklab-vispro\PoinUnklabVispro\obj\Debug\PoinUnklabVispro.TambahPoin.resources

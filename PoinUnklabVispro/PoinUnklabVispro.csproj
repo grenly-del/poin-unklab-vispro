@@ -104,6 +104,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TambahPoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahPoin.Designer.cs">
+      <DependentUpon>TambahPoin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HalamanUtama.resx">
       <DependentUpon>HalamanUtama.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +138,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahPoin.resx">
+      <DependentUpon>TambahPoin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

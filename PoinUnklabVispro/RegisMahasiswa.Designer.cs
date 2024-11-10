@@ -37,8 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRegis = new System.Windows.Forms.Button();
@@ -51,13 +49,13 @@
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNoRegis = new System.Windows.Forms.TextBox();
             this.txtNIM = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPekerjaan = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtPoin = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -151,24 +149,6 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "No.Regis";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(609, 124);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(227, 20);
-            this.txtPassword.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(605, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 16);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Password";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -195,9 +175,9 @@
             this.btnRegis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegis.Location = new System.Drawing.Point(443, 353);
             this.btnRegis.Name = "btnRegis";
-            this.btnRegis.Size = new System.Drawing.Size(120, 41);
+            this.btnRegis.Size = new System.Drawing.Size(177, 41);
             this.btnRegis.TabIndex = 17;
-            this.btnRegis.Text = "REGISTER";
+            this.btnRegis.Text = "Tambah Mahasiswa";
             this.btnRegis.UseVisualStyleBackColor = true;
             this.btnRegis.Click += new System.EventHandler(this.btnRegis_Click);
             // 
@@ -272,33 +252,6 @@
             this.txtNIM.Size = new System.Drawing.Size(227, 20);
             this.txtNIM.TabIndex = 21;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(677, 102);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 15);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "(Lebih dari 5 karakter)";
-            // 
-            // txtPekerjaan
-            // 
-            this.txtPekerjaan.Location = new System.Drawing.Point(93, 311);
-            this.txtPekerjaan.Name = "txtPekerjaan";
-            this.txtPekerjaan.Size = new System.Drawing.Size(227, 20);
-            this.txtPekerjaan.TabIndex = 24;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(89, 288);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 16);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Pekerjaan";
-            // 
             // txtPoin
             // 
             this.txtPoin.Location = new System.Drawing.Point(609, 311);
@@ -335,6 +288,34 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(677, 102);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "(Lebih dari 5 karakter)";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(609, 124);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(227, 20);
+            this.txtPassword.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(605, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Password";
+            // 
             // RegisMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,8 +324,6 @@
             this.Controls.Add(this.txtPoin);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.txtPekerjaan);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtNIM);
             this.Controls.Add(this.txtNoRegis);
             this.Controls.Add(this.label10);
@@ -386,8 +365,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRegis;
@@ -400,12 +377,12 @@
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.TextBox txtNoRegis;
         private System.Windows.Forms.TextBox txtNIM;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPekerjaan;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPoin;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label6;
     }
 }
 
