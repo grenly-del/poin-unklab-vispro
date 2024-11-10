@@ -171,6 +171,11 @@ namespace PoinUnklabVispro
                         cmd.Parameters.AddWithValue("@status", "Berhasil");
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
                         cmd.ExecuteNonQuery();
+
+                        string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
+                        MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
+                        deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                        deleteCmd.ExecuteNonQuery();
                     }
                     else if (checkBoxes[i + 1].Checked) 
                     {
@@ -179,6 +184,11 @@ namespace PoinUnklabVispro
                         cmd.Parameters.AddWithValue("@status", "Ditolak");
                         cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
                         cmd.ExecuteNonQuery();
+
+                        string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
+                        MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
+                        deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                        deleteCmd.ExecuteNonQuery();
 
                     }
                 }
@@ -231,10 +241,9 @@ namespace PoinUnklabVispro
 
                 
                 MySqlCommand mahasiswaCommand = new MySqlCommand(
-                    "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.jumlah_poin as jumlah_poin, pe.jenis_pekerjaan as pekerjaan, p.status as status " +
+                    "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.poin_sisa as jumlah_poin, p.status as status " +
                     "FROM tb_mahasiswa as m " +
-                    "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna " +
-                    "JOIN tb_kerja as pe ON pe.id_mahasiswa = m.id_pengguna LIMIT 1",
+                    "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna ",
                     koneksi);
 
                 

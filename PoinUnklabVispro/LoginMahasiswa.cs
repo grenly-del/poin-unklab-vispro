@@ -32,6 +32,20 @@ namespace PoinUnklabVispro
 
         }
 
+        private void monitorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LoginMonitor lgnmonitor = new LoginMonitor();
+            lgnmonitor.Show();
+            this.Hide();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+            this.Hide();
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try

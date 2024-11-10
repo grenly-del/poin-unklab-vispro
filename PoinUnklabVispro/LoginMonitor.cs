@@ -81,5 +81,19 @@ namespace PoinUnklabVispro
         {
             // Event handler kosong jika tidak ada fungsi
         }
+
+        private void mahasiswaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LoginMahasiswa loginMahasiswa = new LoginMahasiswa();
+            loginMahasiswa.Show();
+            this.Hide();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalamanUtama halamanUtama = new HalamanUtama();
+            halamanUtama.Show();
+
+        }
     }
 }

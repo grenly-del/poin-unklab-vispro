@@ -77,6 +77,7 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // registerToolStripMenuItem
             // 
@@ -111,14 +112,15 @@
             // mahasiswaToolStripMenuItem1
             // 
             this.mahasiswaToolStripMenuItem1.Name = "mahasiswaToolStripMenuItem1";
-            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.mahasiswaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.mahasiswaToolStripMenuItem1.Text = "Mahasiswa";
             // 
             // monitorToolStripMenuItem1
             // 
             this.monitorToolStripMenuItem1.Name = "monitorToolStripMenuItem1";
-            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.monitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.monitorToolStripMenuItem1.Text = "Monitor";
+            this.monitorToolStripMenuItem1.Click += new System.EventHandler(this.monitorToolStripMenuItem1_Click);
             // 
             // label11
             // 
