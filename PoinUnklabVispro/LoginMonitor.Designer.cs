@@ -55,11 +55,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Open Sans ExtraBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(112, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 31);
+            this.label10.Size = new System.Drawing.Size(156, 25);
             this.label10.TabIndex = 58;
             this.label10.Text = "Login Monitor";
             // 
@@ -164,6 +164,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 395);
             this.panel1.TabIndex = 59;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnLogin
             // 
@@ -176,6 +177,7 @@
             this.btnLogin.TabIndex = 63;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // txtPasswordMonitor
             // 
@@ -238,7 +240,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginMonitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginMonitor";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginMonitor_Load);
             this.menuStrip1.ResumeLayout(false);

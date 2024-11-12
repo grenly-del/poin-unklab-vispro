@@ -45,6 +45,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -55,10 +56,10 @@
             // lblnamaMonitor
             // 
             this.lblnamaMonitor.AutoSize = true;
-            this.lblnamaMonitor.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnamaMonitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnamaMonitor.Location = new System.Drawing.Point(703, 12);
             this.lblnamaMonitor.Name = "lblnamaMonitor";
-            this.lblnamaMonitor.Size = new System.Drawing.Size(22, 22);
+            this.lblnamaMonitor.Size = new System.Drawing.Size(23, 18);
             this.lblnamaMonitor.TabIndex = 2;
             this.lblnamaMonitor.Text = "...";
             this.lblnamaMonitor.Click += new System.EventHandler(this.label1_Click);
@@ -155,10 +156,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(294, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(187, 19);
+            this.label8.Size = new System.Drawing.Size(196, 16);
             this.label8.TabIndex = 16;
             this.label8.Text = "Mengelolah Poin Mahasiwa";
             // 
@@ -213,11 +214,22 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(762, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 27);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Show Report";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MonitorPages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 602);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
@@ -264,5 +276,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -227,6 +227,12 @@ namespace PoinUnklabVispro
             this.Hide();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmDataMahasiswa frmDataMahasiswa = new FrmDataMahasiswa();
+            frmDataMahasiswa.Show();
+        }
+
         private void MonitorPages_Load(object sender, EventArgs e)
         {
             try
