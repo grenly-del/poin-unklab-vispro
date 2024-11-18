@@ -57,15 +57,114 @@ namespace PoinUnklabVispro
         {
 
 
+            //try
+            //{
+            //    // Membuka koneksi ke database
+            //    koneksi.Open();
+            //    // Query untuk mengambil data mahasiswa
+
+            //    MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
+            //        "FROM tb_mahasiswa " +
+            //        "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna", koneksi);
+            //    MySqlDataReader reader = cmd.ExecuteReader();
+
+            //    int posY = 450; // Posisi Y awal untuk setiap baris data
+            //    int margin = 20; // Jarak antar baris data
+
+            //    while (reader.Read())
+            //    {
+
+            //        mahasiswaIds.Add(reader["id_pengguna"].ToString());
+            //        // Membuat label untuk Nama
+            //        Label labelNama = new Label();
+            //        labelNama.Text = reader["nama_mahasiswa"].ToString();
+            //        labelNama.Location = new Point(25, posY);
+            //        labelNama.AutoSize = true;
+            //        this.Controls.Add(labelNama);
+
+            //        // Membuat label untuk Umur
+            //        Label labelUmur = new Label();
+            //        labelUmur.Text = reader["poin"].ToString();
+            //        labelUmur.Location = new Point(173, posY);
+            //        labelUmur.AutoSize = true;
+            //        this.Controls.Add(labelUmur);
+
+            //        // Membuat label untuk jenis pekerjaan
+            //        Label jkerja = new Label();
+            //        jkerja.Text = reader["pekerjaan"].ToString();
+            //        jkerja.Location = new Point(253, posY);
+            //        jkerja.AutoSize = true;
+            //        this.Controls.Add(jkerja);
+
+            //        // Membuat Radio Button untuk setiap data mahasiswa
+            //        System.Windows.Forms.CheckBox radiobtn1 = new System.Windows.Forms.CheckBox();
+            //        radiobtn1.Location = new Point(425, posY);
+            //        radiobtn1.AutoSize = true;
+            //        this.Controls.Add(radiobtn1);
+            //        checkBoxes.Add(radiobtn1);
+
+            //        // Membuat Radio Button untuk setiap data mahasiswa
+            //        System.Windows.Forms.CheckBox radiobtn2 = new System.Windows.Forms.CheckBox();
+            //        radiobtn2.Location = new Point(480, posY);
+            //        radiobtn2.AutoSize = true;
+            //        this.Controls.Add(radiobtn2);
+            //        checkBoxes.Add(radiobtn2);
+            //        // RadioButton untuk Setuju
+            //        //System.Windows.Forms.RadioButton radioButtonSetuju = new System.Windows.Forms.RadioButton();
+            //        //radioButtonSetuju.Location = new Point(360, posY);
+            //        //radioButtonSetuju.AutoSize = true;
+            //        //radioButtonSetuju.Text = "Setuju";
+            //        //radioButtonSetuju.GroupName = "group_" + reader["id_pengguna"].ToString();
+            //        //radioButtonSetuju.CheckedChanged += RadioButton_CheckedChanged;
+            //        //this.Controls.Add(radioButtonSetuju);
+
+            //        //// RadioButton untuk Tidak Setuju
+            //        //RadioButton radioButtonTidakSetuju = new RadioButton();
+            //        //radioButtonTidakSetuju.Location = new Point(420, posY); // Atur posisi sesuai kebutuhan
+            //        //radioButtonTidakSetuju.AutoSize = true;
+            //        //radioButtonTidakSetuju.Text = "Tidak Setuju";
+            //        //radioButtonTidakSetuju.GroupName = "group_" + reader["id_pengguna"].ToString();
+            //        //radioButtonTidakSetuju.CheckedChanged += RadioButton_CheckedChanged;
+            //        //this.Controls.Add(radioButtonTidakSetuju);
+
+
+
+            //        // Memperbarui posisi Y untuk baris data berikutnya
+            //        posY += margin;
+            //    }
+
+
+            //    reader.Close();
+            //    koneksi.Close();
+
+            //    //Membuat tombol "Submit" setelah data selesai ditampilkan
+            //    Button btnSubmit = new Button();
+            //    btnSubmit.Text = "Submit";
+            //    btnSubmit.Size = new Size(100, 30);
+            //    btnSubmit.Location = new Point(20, posY + 20); // Letakkan di bawah data yang terakhir ditampilkan
+            //    btnSubmit.Click += new EventHandler(BtnSubmit_Click); // Menambahkan event handler untuk tombol
+            //    this.Controls.Add(btnSubmit);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            //}
+
             try
             {
+                // Mengatur form agar auto size
+                this.AutoSize = true;
+                this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
                 // Membuka koneksi ke database
                 koneksi.Open();
-                // Query untuk mengambil data mahasiswa
 
-                MySqlCommand cmd = new MySqlCommand("SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
+                // Query untuk mengambil data mahasiswa
+                MySqlCommand cmd = new MySqlCommand(
+                    "SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
                     "FROM tb_mahasiswa " +
-                    "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna", koneksi);
+                    "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna",
+                    koneksi);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 int posY = 450; // Posisi Y awal untuk setiap baris data
@@ -73,8 +172,8 @@ namespace PoinUnklabVispro
 
                 while (reader.Read())
                 {
-
                     mahasiswaIds.Add(reader["id_pengguna"].ToString());
+
                     // Membuat label untuk Nama
                     Label labelNama = new Label();
                     labelNama.Text = reader["nama_mahasiswa"].ToString();
@@ -82,62 +181,42 @@ namespace PoinUnklabVispro
                     labelNama.AutoSize = true;
                     this.Controls.Add(labelNama);
 
-                    // Membuat label untuk Umur
-                    Label labelUmur = new Label();
-                    labelUmur.Text = reader["poin"].ToString();
-                    labelUmur.Location = new Point(173, posY);
-                    labelUmur.AutoSize = true;
-                    this.Controls.Add(labelUmur);
+                    // Membuat label untuk Poin
+                    Label labelPoin = new Label();
+                    labelPoin.Text = reader["poin"].ToString();
+                    labelPoin.Location = new Point(173, posY);
+                    labelPoin.AutoSize = true;
+                    this.Controls.Add(labelPoin);
 
-                    // Membuat label untuk jenis pekerjaan
+                    // Membuat label untuk Jenis Pekerjaan
                     Label jkerja = new Label();
                     jkerja.Text = reader["pekerjaan"].ToString();
                     jkerja.Location = new Point(253, posY);
                     jkerja.AutoSize = true;
                     this.Controls.Add(jkerja);
 
-                    // Membuat Radio Button untuk setiap data mahasiswa
-                    System.Windows.Forms.CheckBox radiobtn1 = new System.Windows.Forms.CheckBox();
-                    radiobtn1.Location = new Point(425, posY);
-                    radiobtn1.AutoSize = true;
-                    this.Controls.Add(radiobtn1);
-                    checkBoxes.Add(radiobtn1);
+                    // Membuat CheckBox untuk persetujuan
+                    System.Windows.Forms.CheckBox checkBoxSetuju = new System.Windows.Forms.CheckBox();
+                    checkBoxSetuju.Location = new Point(425, posY);
+                    checkBoxSetuju.AutoSize = true;
+                    this.Controls.Add(checkBoxSetuju);
+                    checkBoxes.Add(checkBoxSetuju);
 
-                    // Membuat Radio Button untuk setiap data mahasiswa
-                    System.Windows.Forms.CheckBox radiobtn2 = new System.Windows.Forms.CheckBox();
-                    radiobtn2.Location = new Point(480, posY);
-                    radiobtn2.AutoSize = true;
-                    this.Controls.Add(radiobtn2);
-                    checkBoxes.Add(radiobtn2);
-                    // RadioButton untuk Setuju
-                    //System.Windows.Forms.RadioButton radioButtonSetuju = new System.Windows.Forms.RadioButton();
-                    //radioButtonSetuju.Location = new Point(360, posY);
-                    //radioButtonSetuju.AutoSize = true;
-                    //radioButtonSetuju.Text = "Setuju";
-                    //radioButtonSetuju.GroupName = "group_" + reader["id_pengguna"].ToString();
-                    //radioButtonSetuju.CheckedChanged += RadioButton_CheckedChanged;
-                    //this.Controls.Add(radioButtonSetuju);
-
-                    //// RadioButton untuk Tidak Setuju
-                    //RadioButton radioButtonTidakSetuju = new RadioButton();
-                    //radioButtonTidakSetuju.Location = new Point(420, posY); // Atur posisi sesuai kebutuhan
-                    //radioButtonTidakSetuju.AutoSize = true;
-                    //radioButtonTidakSetuju.Text = "Tidak Setuju";
-                    //radioButtonTidakSetuju.GroupName = "group_" + reader["id_pengguna"].ToString();
-                    //radioButtonTidakSetuju.CheckedChanged += RadioButton_CheckedChanged;
-                    //this.Controls.Add(radioButtonTidakSetuju);
-
-
+                    // Membuat CheckBox untuk tidak setuju
+                    System.Windows.Forms.CheckBox checkBoxTidakSetuju = new System.Windows.Forms.CheckBox();
+                    checkBoxTidakSetuju.Location = new Point(480, posY);
+                    checkBoxTidakSetuju.AutoSize = true;
+                    this.Controls.Add(checkBoxTidakSetuju);
+                    checkBoxes.Add(checkBoxTidakSetuju);
 
                     // Memperbarui posisi Y untuk baris data berikutnya
                     posY += margin;
                 }
 
-
                 reader.Close();
                 koneksi.Close();
 
-                //Membuat tombol "Submit" setelah data selesai ditampilkan
+                // Membuat tombol "Submit" setelah data selesai ditampilkan
                 Button btnSubmit = new Button();
                 btnSubmit.Text = "Submit";
                 btnSubmit.Size = new Size(100, 30);
