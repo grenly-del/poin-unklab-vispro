@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -150,138 +151,120 @@ namespace PoinUnklabVispro
             //    MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             //}
 
+
             try
             {
-                // Mengatur form agar auto size
-                this.AutoSize = true;
-                this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
                 // Membuka koneksi ke database
                 koneksi.Open();
 
                 // Query untuk mengambil data mahasiswa
-                MySqlCommand cmd = new MySqlCommand(
+                MySqlCommand monitorCommand = new MySqlCommand(
                     "SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
                     "FROM tb_mahasiswa " +
                     "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna",
                     koneksi);
-                MySqlDataReader reader = cmd.ExecuteReader();
 
-                int posY = 450; // Posisi Y awal untuk setiap baris data
-                int margin = 20; // Jarak antar baris data
+                MySqlDataAdapter adapter = new MySqlDataAdapter(monitorCommand);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
 
-                while (reader.Read())
-                {
-                    mahasiswaIds.Add(reader["id_pengguna"].ToString());
+                // Bind data ke DataGridView
+                dataGridView2.DataSource = dataTable;
 
-                    // Membuat label untuk Nama
-                    Label labelNama = new Label();
-                    labelNama.Text = reader["nama_mahasiswa"].ToString();
-                    labelNama.Location = new Point(25, posY);
-                    labelNama.AutoSize = true;
-                    this.Controls.Add(labelNama);
-
-                    // Membuat label untuk Poin
-                    Label labelPoin = new Label();
-                    labelPoin.Text = reader["poin"].ToString();
-                    labelPoin.Location = new Point(173, posY);
-                    labelPoin.AutoSize = true;
-                    this.Controls.Add(labelPoin);
-
-                    // Membuat label untuk Jenis Pekerjaan
-                    Label jkerja = new Label();
-                    jkerja.Text = reader["pekerjaan"].ToString();
-                    jkerja.Location = new Point(253, posY);
-                    jkerja.AutoSize = true;
-                    this.Controls.Add(jkerja);
-
-                    // Membuat CheckBox untuk persetujuan
-                    System.Windows.Forms.CheckBox checkBoxSetuju = new System.Windows.Forms.CheckBox();
-                    checkBoxSetuju.Location = new Point(425, posY);
-                    checkBoxSetuju.AutoSize = true;
-                    this.Controls.Add(checkBoxSetuju);
-                    checkBoxes.Add(checkBoxSetuju);
-
-                    // Membuat CheckBox untuk tidak setuju
-                    System.Windows.Forms.CheckBox checkBoxTidakSetuju = new System.Windows.Forms.CheckBox();
-                    checkBoxTidakSetuju.Location = new Point(480, posY);
-                    checkBoxTidakSetuju.AutoSize = true;
-                    this.Controls.Add(checkBoxTidakSetuju);
-                    checkBoxes.Add(checkBoxTidakSetuju);
-
-                    // Memperbarui posisi Y untuk baris data berikutnya
-                    posY += margin;
-                }
-
-                reader.Close();
+                // Set kolom agar otomatis menyesuaikan lebar kontennya
+                dataGridView2.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 koneksi.Close();
 
-                // Membuat tombol "Submit" setelah data selesai ditampilkan
-                Button btnSubmit = new Button();
-                btnSubmit.Text = "Submit";
-                btnSubmit.Size = new Size(100, 30);
-                btnSubmit.Location = new Point(20, posY + 20); // Letakkan di bawah data yang terakhir ditampilkan
-                btnSubmit.Click += new EventHandler(BtnSubmit_Click); // Menambahkan event handler untuk tombol
-                this.Controls.Add(btnSubmit);
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
-            }
-
-        }
-
-        private void BtnSubmit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                koneksi.Open();
-                MessageBox.Show("idMahasiswa untuk checkbox: ");
-
-                for (int i = 0; i < checkBoxes.Count; i += 2) // Mengambil setiap dua checkbox
-                {
-                    string idMahasiswa = mahasiswaIds[i / 2]; // Ambil ID mahasiswa sesuai index
-
-
-                    if (checkBoxes[i].Checked) // Jika checkbox 1 (Berhasil) tercentang
-                    {
-                        string query = "UPDATE tb_poin SET status = @status, poin_sisa = GREATEST(poin_sisa - (SELECT jumlah_poin_req FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa LIMIT 1), 0) WHERE id_mahasiswa = @id_mahasiswa";
-                        MySqlCommand cmd = new MySqlCommand(query, koneksi);
-                        cmd.Parameters.AddWithValue("@status", "Berhasil");
-                        cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
-                        cmd.ExecuteNonQuery();
-
-                        string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
-                        MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
-                        deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
-                        deleteCmd.ExecuteNonQuery();
-                    }
-                    else if (checkBoxes[i + 1].Checked) 
-                    {
-                        string query = "UPDATE tb_poin SET status = @status WHERE id_mahasiswa = @id_mahasiswa";
-                        MySqlCommand cmd = new MySqlCommand(query, koneksi);
-                        cmd.Parameters.AddWithValue("@status", "Ditolak");
-                        cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
-                        cmd.ExecuteNonQuery();
-
-                        string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
-                        MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
-                        deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
-                        deleteCmd.ExecuteNonQuery();
-
-                    }
-                }
-
-                MessageBox.Show("Data berhasil disimpan!");
                 koneksi.Close();
-            }
-            catch (Exception ex)
-            {
                 MessageBox.Show("Error: " + ex.Message);
-                koneksi.Close(); 
             }
+
+            //try
+            //{
+            //    // Mengatur form agar auto size
+            //    this.AutoSize = true;
+            //    this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
+            //    // Membuka koneksi ke database
+            //    koneksi.Open();
+
+            //    // Query untuk mengambil data mahasiswa
+            //    MySqlCommand cmd = new MySqlCommand(
+            //        "SELECT tb_mahasiswa.id_pengguna, tb_mahasiswa.nama_mahasiswa AS nama_mahasiswa, pe.jumlah_poin_req AS poin, pe.jenis_pekerjaan as pekerjaan " +
+            //        "FROM tb_mahasiswa " +
+            //        "JOIN tb_kerja AS pe ON pe.id_mahasiswa = tb_mahasiswa.id_pengguna",
+            //        koneksi);
+            //    MySqlDataReader reader = cmd.ExecuteReader();
+
+            //    int posY = 450; // Posisi Y awal untuk setiap baris data
+            //    int margin = 20; // Jarak antar baris data
+
+            //    while (reader.Read())
+            //    {
+            //        mahasiswaIds.Add(reader["id_pengguna"].ToString());
+
+            //        // Membuat label untuk Nama
+            //        Label labelNama = new Label();
+            //        labelNama.Text = reader["nama_mahasiswa"].ToString();
+            //        labelNama.Location = new Point(25, posY);
+            //        labelNama.AutoSize = true;
+            //        this.Controls.Add(labelNama);
+
+            //        // Membuat label untuk Poin
+            //        Label labelPoin = new Label();
+            //        labelPoin.Text = reader["poin"].ToString();
+            //        labelPoin.Location = new Point(173, posY);
+            //        labelPoin.AutoSize = true;
+            //        this.Controls.Add(labelPoin);
+
+            //        // Membuat label untuk Jenis Pekerjaan
+            //        Label jkerja = new Label();
+            //        jkerja.Text = reader["pekerjaan"].ToString();
+            //        jkerja.Location = new Point(253, posY);
+            //        jkerja.AutoSize = true;
+            //        this.Controls.Add(jkerja);
+
+            //        // Membuat CheckBox untuk persetujuan
+            //        System.Windows.Forms.CheckBox checkBoxSetuju = new System.Windows.Forms.CheckBox();
+            //        checkBoxSetuju.Location = new Point(425, posY);
+            //        checkBoxSetuju.AutoSize = true;
+            //        this.Controls.Add(checkBoxSetuju);
+            //        checkBoxes.Add(checkBoxSetuju);
+
+            //        // Membuat CheckBox untuk tidak setuju
+            //        System.Windows.Forms.CheckBox checkBoxTidakSetuju = new System.Windows.Forms.CheckBox();
+            //        checkBoxTidakSetuju.Location = new Point(480, posY);
+            //        checkBoxTidakSetuju.AutoSize = true;
+            //        this.Controls.Add(checkBoxTidakSetuju);
+            //        checkBoxes.Add(checkBoxTidakSetuju);
+
+            //        // Memperbarui posisi Y untuk baris data berikutnya
+            //        posY += margin;
+            //    }
+
+            //    reader.Close();
+            //    koneksi.Close();
+
+            //    // Membuat tombol "Submit" setelah data selesai ditampilkan
+            //    Button btnSubmit = new Button();
+            //    btnSubmit.Text = "Submit";
+            //    btnSubmit.Size = new Size(100, 30);
+            //    btnSubmit.Location = new Point(20, posY + 20); // Letakkan di bawah data yang terakhir ditampilkan
+            //    btnSubmit.Click += new EventHandler(BtnSubmit_Click); // Menambahkan event handler untuk tombol
+            //    this.Controls.Add(btnSubmit);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            //}
+
         }
 
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -310,59 +293,117 @@ namespace PoinUnklabVispro
             FrmDataMahasiswa frmDataMahasiswa = new FrmDataMahasiswa();
             frmDataMahasiswa.Show();
         }
+        private System.Windows.Forms.RadioButton radioButtonSetuju;
+        private System.Windows.Forms.RadioButton radioButtonTidakSetuju;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if (txtSearchID.Text != "")
+                {
+                    string cariQuery = "select * from tb_kerja where id_mahasiswa = @id_mahasiswa";
+                    ds.Clear();
+                    koneksi.Open();
+                    MySqlCommand deleteCmd = new MySqlCommand(cariQuery, koneksi);
+                    deleteCmd.Parameters.AddWithValue("@id_mahasiswa", Convert.ToInt32(txtSearchID.Text));
+                    adapter = new MySqlDataAdapter(deleteCmd);
+                    deleteCmd.ExecuteNonQuery();
+                    adapter.Fill(ds);
+                    koneksi.Close();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+
+
+                        radioButtonSetuju = new System.Windows.Forms.RadioButton();
+                        radioButtonSetuju.Location = new Point(270, 397);
+                        radioButtonSetuju.AutoSize = true;
+                        radioButtonSetuju.Text = "Setuju";
+                        this.Controls.Add(radioButtonSetuju);
+
+                        // RadioButton untuk Tidak Setuju
+                        radioButtonTidakSetuju = new System.Windows.Forms.RadioButton();
+                        radioButtonTidakSetuju.Location = new Point(350, 397); // Atur posisi sesuai kebutuhan
+                        radioButtonTidakSetuju.AutoSize = true;
+                        radioButtonTidakSetuju.Text = "Tidak Setuju";
+                        this.Controls.Add(radioButtonTidakSetuju);
+
+                        // Button Submit
+                        Button btnSubmit = new Button();
+                        btnSubmit.Text = "Submit";
+                        btnSubmit.Location = new Point(440, 395); // Posisi tombol Submit
+                        btnSubmit.Click += (s, eArgs) => BtnSubmit_Click(s, eArgs, Convert.ToInt32(txtSearchID.Text));
+                        this.Controls.Add(btnSubmit);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data Tidak Ada !!");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Data Yang Anda Pilih Tidak Ada !!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            
+         }
+        private void BtnSubmit_Click(object sender, EventArgs e, int idMhs)
+        {
+            try
+            {
+                koneksi.Open();
+
+                int idMahasiswa = idMhs; // Ambil ID mahasiswa sesuai index
+
+
+                if (radioButtonSetuju.Checked) // Jika checkbox 1 (Berhasil) tercentang
+                {
+                    string query = "UPDATE tb_poin SET status = @status, poin_sisa = GREATEST(poin_sisa - (SELECT jumlah_poin_req FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa LIMIT 1), 0) WHERE id_mahasiswa = @id_mahasiswa";
+                    MySqlCommand cmd = new MySqlCommand(query, koneksi);
+                    cmd.Parameters.AddWithValue("@status", "Berhasil");
+                    cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                    cmd.ExecuteNonQuery();
+
+                    string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
+                    MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
+                    deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                    deleteCmd.ExecuteNonQuery();
+                    MessageBox.Show("Data disetujui" +
+                        "");
+                }
+                else if (radioButtonTidakSetuju.Checked)
+                {
+                    string query = "UPDATE tb_poin SET status = @status WHERE id_mahasiswa = @id_mahasiswa";
+                    MySqlCommand cmd = new MySqlCommand(query, koneksi);
+                    cmd.Parameters.AddWithValue("@status", "Ditolak");
+                    cmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                    cmd.ExecuteNonQuery();
+
+                    string deleteQuery = "DELETE FROM tb_kerja WHERE id_mahasiswa = @id_mahasiswa";
+                    MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, koneksi);
+                    deleteCmd.Parameters.AddWithValue("@id_mahasiswa", idMahasiswa);
+                    deleteCmd.ExecuteNonQuery();
+                    MessageBox.Show("Data tidak disetujui");
+                }
+
+                
+                koneksi.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                koneksi.Close();
+            }
+        }
 
         private void MonitorPages_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    koneksi.Open();
-
-
-            //    MySqlCommand monitorCommand = new MySqlCommand(
-            //        "SELECT nama_monitor FROM tb_monitor WHERE id_monitor = @idMonitor", koneksi);
-            //    monitorCommand.Parameters.AddWithValue("@idMonitor", idMonitor); 
-            //    MySqlDataReader monitorReader = monitorCommand.ExecuteReader();
-
-            //    if (monitorReader.Read())
-            //    {
-            //        lblnamaMonitor.Text = monitorReader["nama_monitor"].ToString();
-            //    }
-
-            //    monitorReader.Close();
-
-
-            //    MySqlCommand mahasiswaCommand = new MySqlCommand(
-            //        "SELECT m.nama_mahasiswa as nama_mahasiswa, m.nim as nim, p.poin_sisa as jumlah_poin, p.status as status, m.no_regis as no_regis " +
-            //        "FROM tb_mahasiswa as m " +
-            //        "JOIN tb_poin as p ON p.id_mahasiswa = m.id_pengguna ",
-            //        koneksi);
-
-
-            //    MySqlDataReader mahasiswaReader = mahasiswaCommand.ExecuteReader();
-
-            //    int row = 1;
-            //    while (mahasiswaReader.Read())
-            //    {
-
-            //        TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nama_mahasiswa"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 0, row);
-            //        TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["nim"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 1, row);
-            //        TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["no_regis"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 2, row);
-            //        TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["jumlah_poin"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 3, row);
-            //        TableInformasiMHS.Controls.Add(new Label() { Text = mahasiswaReader["status"].ToString(), TextAlign = System.Drawing.ContentAlignment.MiddleCenter }, 4, row);
-
-            //        row++; 
-            //        TableInformasiMHS.RowCount = row; 
-            //    }
-
-            //    mahasiswaReader.Close(); 
-            //    koneksi.Close(); 
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    koneksi.Close();
-            //    MessageBox.Show("Error: " + ex.Message);
-            //}
             try
             {
                 koneksi.Open();
